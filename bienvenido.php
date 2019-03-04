@@ -7,7 +7,7 @@
 <body>
 <div class="div_titulo">
 	
-	<p class="p">----Bienvenido-----</p>
+	<p class="p">------------------Bienvenido TUTOR------------ <3 -----</p>
 </div>
 </body>
 </html>

@@ -117,5 +117,80 @@ class Usuario{
 
 }
 
+public static function verificarCorreo($conexion,$email)
+{
+	$sql = sprintf(
+		"SELECT  PreguntaSeguridad FROM usuario WHERE email = '%s'",
+		$email
+
+	);
+//echo ($sql);
+
+$resultado = $conexion->ejecutarConsulta($sql);
+$cantidadRegistros = $conexion->cantidadRegistros($resultado);
+$respuesta=array();
+if ($cantidadRegistros==1){
+	$fila = $conexion->obtenerFila($resultado);
+	$respuesta["estatus"]=1;
+	$respuesta["respuesta1"] = $fila["PreguntaSeguridad"];
+}else{
+	$respuesta["estatus"]=0;
+}
+
+echo json_encode($respuesta);
+
+
+}
+
+
+
+public static function verificarRespuesta($conexion,$email,$res)
+{
+	$sql = sprintf(
+		"SELECT  * FROM usuario WHERE email = '%s'and RespuestaSeguridad='%s'",
+		$email,
+		$res
+
+	);
+//echo ($sql);
+
+$resultado = $conexion->ejecutarConsulta($sql);
+$cantidadRegistros = $conexion->cantidadRegistros($resultado);
+$respuesta=array();
+if ($cantidadRegistros==1){
+	$fila = $conexion->obtenerFila($resultado);
+	
+	//cambiar la contrasena
+	$nuevoPass = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0,8);
+	$nuevoPass2 = sha1($nuevoPass);
+
+	$sql2 = "UPDATE usuario SET password='".$nuevoPass2."'  WHERE idUsuario=".$fila["idUsuario"];
+
+		if ($conexion->ejecutarConsulta($sql2) === TRUE) {
+			//correo
+	 
+
+				$destino = $email;
+				$desde='from:'.'tutoriasnah2019';
+				$asunto='Restablecimiento de password';
+				$mensaje='tu nuevo password es ****:'.$nuevoPass.'**** RECUERDA QUE PUEDES CAMBIARLO DESPUES DESDE TU PERFIL';
+	
+				mail($destino,$asunto,$mensaje,$desde);
+				//fin correo
+
+    			$respuesta["respuesta1"] = " Se envio el nuevo password al correo de la cuenta.";
+			} else {
+    			$respuesta["respuesta1"]= "Error al cambiar contrasena: " . $conn->error;
+			}
+	$respuesta["estatus"]=1;
+}else{
+	$respuesta["estatus"]=0;
+}
+echo $conexion->getError();
+echo json_encode($respuesta);
+
+
+}
+
 }
 ?>

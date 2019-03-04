@@ -56,6 +56,68 @@ $.ajax({
 
 */
 
+
+
+$("#btn-verificar-correo").click(function(){
+
+   var parametro ='txt-correo='+$("#recipient-correo").val();
+    $.ajax({
+        url:"ajax/gestion-usuario.php?accion=verificar_correo",
+        data: parametro,
+        method:"POST",
+        dataType:'json',
+        success: function(respuesta){
+            if(respuesta.estatus == 1)
+            {
+             // $("#div-pregunta").html(respuesta.respuesta1);
+             $("#label-pregunta").html(respuesta.respuesta1)
+              document.getElementById('div-pregunta').style.display ='inherit';
+            }
+            else{
+              alert("No se encontro la cuenta.");
+            }
+        },
+        error:function(e){
+                      
+          console.log(e);
+          
+          }
+
+    })
+
+
+
+});
+
+
+$("#btn-verificar-respuesta").click(function(){
+  var parametro ='txt-correo='+$("#recipient-correo").val()+'&txt-respuesta2='+$("#txt-respuesta2").val();
+  $.ajax({
+      url:"ajax/gestion-usuario.php?accion=verificar_respuesta",
+      data: parametro,
+      method:"POST",
+      dataType:'json',
+      success: function(respuesta){
+          if(respuesta.estatus == 1)
+          {
+            alert(respuesta.respuesta1);
+            window.location = "index.php";
+
+          }
+          else{
+            alert("Respuesta Incorrecta.");
+          }
+      },
+      error:function(e){
+                    
+        console.log(e);
+        
+        }
+
+  })
+
+})
+
 $("#slc-centroEstudio").click(function(){
 
     var parametro = "slc-centroEstudio="+ $('#slc-centroEstudio').val();
@@ -143,8 +205,13 @@ $("#btn-iniciar-sesion-estudiante").click(function(){
                   success: function(respuesta){
          					if(respuesta.estatus==1)
          						{
-
-             					 window.location = "bienvenido.php";
+                      if(respuesta.idTipoUsuario == 1)
+                      {
+                        window.location = "HomeEstudiante.html";
+                      }
+                      else{
+                        window.location = "bienvenido.php";
+                      }
 						         }
          						else
            							{
@@ -234,7 +301,7 @@ if($("#txt-pnombre").val())
                   method:"POST",
                   success:function(respuesta){
                     console.log(respuesta);
-                    alert("Usuario Creado! logueate")
+                    alert("Usuario Creado! logueate");
                     window.location = "index.php";
                   },
                   error:function(e){

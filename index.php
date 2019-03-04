@@ -34,7 +34,8 @@
 
   <body>
 
-    <!-- Navigation -->
+    <!--unahtutorias2019@gmail.com Navigation -->
+    
     <!-- <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
 
@@ -81,6 +82,40 @@
     </nav> -->
 <body>
   
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Recuperar Cuenta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Correo de su cuenta:</label>
+            <input type="text" class="form-control" id="recipient-correo">
+            <div id="div-pregunta" style="display:none" >
+            <label>Primero Responde la siguiente pregunta:</label>
+								<label class="form-control" id="label-pregunta"></label>
+								<input type="text" id="txt-respuesta2" class="form-control">
+								<button id="btn-verificar-respuesta" class="btn btn-primary">Enviar Respuesta</button>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="btn-verificar-correo">Verificar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  <!--FIN MODAL--------------------------------------------------------------------- -->
   <div class="limiter">
     <div class="container-login100">
       <div class="wrap-login100">
@@ -118,7 +153,7 @@
             <span class="txt1">
               Olvidaste
             </span>
-            <a class="txt2" href="#">
+            <a class="txt2" href="#"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
               ¿Tu Cuenta / Contraseña?
             </a>
           </div>

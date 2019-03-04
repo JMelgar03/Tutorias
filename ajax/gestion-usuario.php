@@ -36,7 +36,18 @@
          //Usuario::consultar($conexion,$_POST["txt-cuenta"],$_POST["txt-password"]);
 
    		Usuario::verificarUsuario($conexion,$_POST["txt-correo"],$contrasena);
-   		break;
+         break;
+         
+
+   case'verificar_correo':
+      include ('../class/class-usuario1.php');
+      Usuario::verificarCorreo($conexion,$_POST["txt-correo"]);
+      break;
+
+   case 'verificar_respuesta':
+      include ('../class/class-usuario1.php');
+      Usuario::verificarRespuesta($conexion,$_POST['txt-correo'],$_POST['txt-respuesta2']);
+      break;
    	default:
    		# code...
    		break;
