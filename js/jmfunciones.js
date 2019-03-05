@@ -14,6 +14,24 @@ $.ajax({
         }
 
  });
+
+
+ $.ajax({
+  url:"ajax/getInfo.php?accion=departamentoclase",
+         data:"",
+         method:"POST",
+         success:function(respuesta){
+ 
+           $("#div-contenedor").html(respuesta);
+         },
+         error:function(e){
+ 
+            console.log(e);
+         }
+ 
+  });
+
+
 });
 
 
@@ -207,7 +225,7 @@ $("#btn-iniciar-sesion-estudiante").click(function(){
          						{
                       if(respuesta.idTipoUsuario == 1)
                       {
-                        window.location = "HomeEstudiante.html";
+                        window.location = "HomeEstudiante.php";
                       }
                       else{
                         window.location = "bienvenido.php";

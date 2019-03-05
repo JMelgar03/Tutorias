@@ -49,15 +49,19 @@
               <a class="nav-link" href="about.php">Opcion</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="tipoUsuario.html">NombreAlumno</a>
+              <a class="nav-link" href="tipoUsuario.html">
+                <?php 
+                  echo '<label>'.$_SESSION["email"].'</label>'
+                ?>
+              </a>
             </li>
-            <li class="nav-item dropdown">
+            <!--<li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Ingresar
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
                 <a class="dropdown-item" href="index.php">Login</a>
-                
+              --> 
         <!--        <a class="dropdown-item" href="portfolio-3-col.html"></a>
                 <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
                 <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a> -->
@@ -102,8 +106,8 @@
     <br>
     <br>
     <!-- Page Content -->
-    <div class="container">
-      
+    <div class="container" >
+      <div class="row" id="div-contenedor">
         <div class="card" style="width: 18rem;">
             <img class="card-img-top" src=".../100px180/" alt="Card image cap">
             <div class="card-body">
@@ -112,8 +116,32 @@
               <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
-
+        </div>
     </div>
+
+
+
+
+
+
+
+    <!--===============================================================================================-->  
+  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+  <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+  <!--===============================================================================================-->
+    <script src="vendor/tilt/tilt.jquery.min.js"></script>
+    <script >
+      $('.js-tilt').tilt({
+        scale: 1.1
+      })
+    </script>
+  <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+    <script src="js/jmfunciones.js"></script>
 
     </body>
   </html>
