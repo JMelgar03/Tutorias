@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Registro Usuario - Tutorias</title>
+    <link rel="icon" href="img/imgunah/logo.png" sizes="24x24" type="image/svg">
+
+
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css"> 
+  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+  <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+  <link rel="stylesheet" type="text/css" href="css/util.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+    <script src="js/misFunciones.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+
+        <a class="navbar-brand" href="index.php"><img src="img/imgunah/logo.png">Universidad Nacional Autónoma de Honduras</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="HomeTutor.html">Atras</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+<br>
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Page Heading/Breadcrumbs -->
+      <br><br> <h1 class="mt-4 mb-3"> FORMULARIO
+        <small>| Crear Sección</small>
+      </h1>
+
+      <!-- Content Row -->
+      <div class="row">
+        <!-- Map Column -->
+        <div class="col-lg-8 mb-4">
+          <!-- Embedded Google Map -->
+          <img src="img/imgunah/todos-somos-puma.jpg" width="100%" height="300px">   
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <!-- Contact Form -->
+      <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+      <div class="row">
+        <div class="col-lg-8 mb-4">
+          <h3> <strong>Datos Sección</strong></h3>
+          <br>
+          <br>
+            <!--Formulario -->
+          <div class="form-group row">
+            <label for="example-text-input" class="col-3 col-form-label"><p>Nombre de la Sección</p></label>
+              <div class="col-9">
+                <input class="form-control" type="text" id="txt-nombreSeccion" value="" name="nombreSeccion" example-text-input">
+              </div>
+          </div>
+          <br>
+
+          <div class="form-group row">
+            <label for="example-tel-input" class="col-2 col-form-label"><p>Materia</p></label>
+            <div class="col-10">
+                <select id="slc-materia">
+                <option class="form-control" >Seleccione materia a impartir</option>
+                    <option class="form-control" value="" id="materia" name="materia"</option>
+                </select>
+            </div>
+          </div>
+
+          <div class="row">
+            
+            <div class="col-6">
+              <div class="form-group row">
+                <label for="example-tel-input" class="col-4 col-form-label"><p>Hora Inicial</p></label>
+                <div class="col-8">
+                    <select id="slc-horaInicial">
+                    <option class="form-control" >Horal Inicial</option>
+                        <option class="form-control" value="7" name="inicio">7:00AM</option>
+                        <option class="form-control" value="8" name="inicio">8:00AM</option>
+                        <option class="form-control" value="9" name="inicio">9:00AM</option>
+                        <option class="form-control" value="10" name="inicio">10:00AM</option>
+                        <option class="form-control" value="11" name="inicio">11:00AM</option>
+                        <option class="form-control" value="12" name="inicio">12:00PM</option>
+                        <option class="form-control" value="13" name="inicio">1:00PM</option>
+                        <option class="form-control" value="14" name="inicio">2:00PM</option>
+                        <option class="form-control" value="15" name="inicio">3:00PM</option>
+                        <option class="form-control" value="16" name="inicio">4:00PM</option>
+                    </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="form-group row">
+                <label for="example-tel-input" class="col-4 col-form-label"><p>Hora Final</p></label>
+                <div class="col-8">
+                    <select id="slc-horaFinal">
+                    <option class="form-control" >Horal Final</option>
+                        <option class="form-control" value="8" name="final">8:00AM</option>
+                        <option class="form-control" value="9" name="final">9:00AM</option>
+                        <option class="form-control" value="10" name="final">10:00AM</option>
+                        <option class="form-control" value="11" name="final">11:00AM</option>
+                        <option class="form-control" value="12" name="final">12:00PM</option>
+                        <option class="form-control" value="13" name="final">1:00PM</option>
+                        <option class="form-control" value="14" name="final">2:00PM</option>
+                        <option class="form-control" value="15" name="final">3:00PM</option>
+                        <option class="form-control" value="16" name="final">4:00PM</option>
+                        <option class="form-control" value="17" name="final">5:00PM</option>
+                    </select>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          
+
+          <br>
+
+          <div class="form-group row">
+            <label for="example-text-input" class="col-3 col-form-label"><p>Numero máximo de Cupos</p></label>
+              <div class="col-9">
+                <input class="form-control" type="text" id="txt-numeroCupos" value="" name="numeroCupos" example-text-input">
+              </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12"><p>Dias Impartidos</p></div>
+            <div class="col-2"><input type="checkbox" name="week" value="lunes"> Lunes</div>
+            <div class="col-2"><input type="checkbox" name="week" value="martes"> Martes</div>
+            <div class="col-2"><input type="checkbox" name="week" value="miercoles"> Miercoles</div>
+            <div class="col-2"><input type="checkbox" name="week" value="jueves"> Jueves</div>
+            <div class="col-2"><input type="checkbox" name="week" value="viernes"> Viernes</div>
+            <div class="col-2"><input type="checkbox" name="week" value="sabado"> Sabado</div>
+
+          </div>
+
+              <!-- For success/fail messages -->
+          <div class="container-login100-form-btn">
+              <button id="btn-crearSeccion" class="login100-form-btn">
+                Crear Sección
+              </button>
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Ingenieria del software &copy; Proyecto  2019</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/NuevaSeccion.js"></script>
+  </body>
+
+</html>

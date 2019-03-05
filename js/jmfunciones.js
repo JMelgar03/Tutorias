@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
 $.ajax({
  url:"ajax/getInfo.php?accion=centroEstudio",
@@ -210,7 +209,7 @@ $("#btn-iniciar-sesion-estudiante").click(function(){
                         window.location = "HomeEstudiante.html";
                       }
                       else{
-                        window.location = "bienvenido.php";
+                        window.location = "HomeTutor.html";
                       }
 						         }
          						else
@@ -234,7 +233,6 @@ $("#btn-iniciar-sesion-estudiante").click(function(){
 	}
 
 });
-
 
 
 /*$("#slc-carreras").click(function(){
@@ -412,6 +410,7 @@ $("#btn-agregar-asignatura").click(function(){
 
 });
 
+$()
 
 
 

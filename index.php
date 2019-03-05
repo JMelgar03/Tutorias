@@ -21,6 +21,7 @@
   <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
   <link rel="stylesheet" type="text/css" href="css/util.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/custom.css">
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -143,7 +144,7 @@
               <i class="fa fa-lock" aria-hidden="true"></i>
             </span>
           </div>
-          
+
           <div class="container-login100-form-btn">
             <button  class="login100-form-btn" id="btn-iniciar-sesion-estudiante">
               Iniciar sesión
