@@ -93,7 +93,7 @@ class Usuario{
 
   public static function verificarUsuario($conexion,$email,$contra){
 	$sql = sprintf(
-			"SELECT  email, idTipoUsuario FROM usuario WHERE password = '%s' AND email = '%s'",
+			"SELECT  idUsuario, email, idTipoUsuario FROM usuario WHERE password = '%s' AND email = '%s'",
 			$contra,
 			$email
 
@@ -108,6 +108,27 @@ class Usuario{
 		$respuesta["estatus"]=1;
 		$_SESSION["email"] = $fila["email"];
 		$_SESSION["idTipoUsuario"] = $fila["idTipoUsuario"];
+		if( $fila["idTipoUsuario"] == 2)
+		   {
+               $consulta = $conexion->ejecutarConsulta("SELECT * FROM alumno a
+			   inner join tutor t on a.idAlumno = t.idAlumno
+			   inner join usuario u on a.idUsuario = u.idUsuario
+			   WHERE u.idUsuario =".$fila['idUsuario']);
+			   $datos2 = $conexion->obtenerFila($consulta);
+			   $_SESSION['idTutor'] = $datos2['idTutor'];
+		  
+			}
+
+			$consultaDatos = "SELECT * FROM alumno a INNER JOIN carrera c ON a.idCarrera = c.idCarrera WHERE a.idUsuario=".$fila['idUsuario'];
+			$res2 = $conexion->ejecutarConsulta($consultaDatos);
+			$datos = $conexion->obtenerFila($res2);
+			$_SESSION['nombreCompleto'] = $datos['Nombre1'].' '.$datos['Nombre2'].' '.$datos['Apellido1'].' '
+			.$datos['Apellido2'];
+			$_SESSION['numeroCuenta'] = $datos['NumeroCuenta'];
+			$_SESSION['carrera'] = $datos['NombreCarrera'];	
+			$_SESSION['telefono'] = $datos['Telefono'];
+			
+
 		$respuesta["idTipoUsuario"]=$fila["idTipoUsuario"];
 	}else{
 		$respuesta["estatus"]=0;

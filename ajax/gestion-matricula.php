@@ -14,8 +14,13 @@ include("../class/class-conexion.php");
 		 '');
 
 		 $matricula->agregarSeccion($conexion);
-
-   	break;
+			
+	   break;
+	   
+	case'eliminarSeccion':
+	include('../class/class-seccion.php');
+	Seccion::eliminarSeccion($conexion,$_POST['idSeccion']);
+	break;
    	
    	default:
    	   echo 'opcion invalida';

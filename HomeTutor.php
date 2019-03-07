@@ -1,3 +1,8 @@
+<?php
+
+ session_start();
+ 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,14 +54,14 @@
               <a class="nav-link" href="about.php">Opcion</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="tipoUsuario.html">NombreAlumno</a>
+              <a class="nav-link" href="Perfil.php"><?php echo $_SESSION['email']; ?></a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Ingresar
+               Cerrar Sesion
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                <a class="dropdown-item" href="index.php">Login</a>
+                <a class="dropdown-item" href="index.php">Logout</a>
                 
         <!--        <a class="dropdown-item" href="portfolio-3-col.html"></a>
                 <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>

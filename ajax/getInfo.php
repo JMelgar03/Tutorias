@@ -13,6 +13,11 @@ session_start();
 		 include("../class/class-centroEstudio.php");
 		 CentroEstudio::obtenerCentros($conexion);
 		break;	
+
+		case'Edificio':
+		 include("../class/class-edificio.php");
+		 Edificio::obtenerEdificiosT($conexion);
+		break;	
 		
 		case 'ciudades':
 		include('../class/class-ciudad.php');
@@ -37,13 +42,30 @@ session_start();
         case 'asignaturas':
         
         	include('../class/class-asignatura.php');       
-        	Asignatura::obtenerAsignaturas($conexion,$_POST["slc-departamento"]);
+			Asignatura::obtenerAsignaturas($conexion,$_SESSION['idDepto']);
+		break;
+		
+		case 'asignaturasT':
+        
+        	include('../class/class-asignatura.php');       
+			Asignatura::obtenerAsignaturasT($conexion);
+		break;
+		
+		case 'aula':
+        
+        	include('../class/class-aula.php');       
+			Aula::obtenerAula($conexion,$_POST['codigoEdificio']);
         break;
 
-        case'seccion':
+        case'secciones':
         	include('../class/class-seccion.php');
         	Seccion::obtenerSecciones($conexion,$_POST["slc-asignatura"]);
-
+			break;
+		
+			case'seccionesT':
+        	include('../class/class-seccion.php');
+			Seccion::obtenerSeccionesT($conexion,$_SESSION["idTutor"]);
+			break;
 
         case'detallematricula':
         	include('../class/class-detalle-matricula.php');

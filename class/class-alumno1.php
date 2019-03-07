@@ -124,7 +124,30 @@
 			echo 'Codigo del ultimo usuario:'.$idUsuario["idUsuario"];
 			echo $sql;
 			$resultado = $conexion->ejecutarConsulta($sql);
+			
+			
+			
+			$consulta = $conexion->ejecutarConsulta('SELECT idTipoUsuario from usuario WHERE idUsuario ='.$idUsuario["idUsuario"]);
+			$idTipoUsuario = $conexion->obtenerFila($consulta);
+			
+			if($idTipoUsuario["idTipoUsuario"] == 2){
+			$sql3 = $conexion->ejecutarConsulta("Select MAX(idAlumno)'idAlumno' from alumno");
+			$idAlumno2 =  $conexion->obtenerFila($sql3);
+			$sql3 = 'INSERT INTO Tutor (idAlumno,valoracion) VALUES ('.$idAlumno2['idAlumno'].',0.0)';
+			$conexion->ejecutarConsulta($sql3);
 			echo $conexion->getError();
+			}
+
+	  }
+
+
+
+	  public static function editarAlumno($conexion,$primerNombre,$segundoNombre,$primerApellido,$segundoApellido,$cuenta,$telefono,$idAlumno){
+
+		$sql = "UPDATE alumno SET Nombre1='".$primerNombre."',Nombre2='".$segundoNombre."',Apellido1='".$primerApellido."',Apellido2='".$segundoApellido."',NumeroCuenta=".$cuenta.",Telefono=".$telefono." WHERE NumeroCuenta=".$idAlumno;
+		echo $sql;
+		$consulta = $conexion->ejecutarConsulta($sql);
+		echo $conexion->getError();
 	  }
 }
 ?>

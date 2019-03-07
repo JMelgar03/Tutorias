@@ -1,5 +1,5 @@
 <?php  
-
+	session_start();
 	include("../class/class-conexion.php");
 	$conexion = new Conexion();
 	
@@ -31,7 +31,15 @@
 			$usuario->insertarUsuario($conexion);
 			$alumno->insertarAlumno($conexion);
 			break;
+		case 'guardarSeccion':
+		include("../class/class-seccion.php");
+			Seccion::crearSeccionT($conexion,$_POST['slc-horaInicial'],$_POST['slc-horaFinal'],$_POST['dias'],$_POST['slc-materia'],$_POST['nombreSeccion'],$_POST['txt-numeroCupos'],$_POST['slc-aula'],$_SESSION['idTutor']);
+			break;
 
+		case'editarAlumno':
+			include("../class/class-alumno1.php");
+			Alumno::editarAlumno($conexion,$_POST["pNombre"],$_POST['sNombre'],$_POST['pApellido'],$_POST['sApellido'],$_POST['cuenta'],$_POST['telefono'],$_SESSION['numeroCuenta']);
+		break;
 			default:
 			 	echo 'Opcion invalida.';
 			 break;

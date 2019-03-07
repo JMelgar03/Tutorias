@@ -29,6 +29,23 @@ $.ajax({
          }
  
   });
+  
+
+  $.ajax({
+    
+    url:"ajax/getInfo.php?accion=asignaturas",
+           data:"",
+           method:"POST",
+           success:function(respuesta){
+   
+             $("#div-contenedor-2").html(respuesta);
+           },
+           error:function(e){
+   
+              console.log(e);
+           }
+   
+    });
 
 
 });
@@ -227,7 +244,7 @@ $("#btn-iniciar-sesion-estudiante").click(function(){
                         window.location = "HomeEstudiante.php";
                       }
                       else{
-                        window.location = "HomeTutor.html";
+                        window.location = "HomeTutor.php";
                       }
 						         }
          						else
@@ -272,6 +289,10 @@ $("#btn-iniciar-sesion-estudiante").click(function(){
  });
 
  });*/
+
+function verClases(a){
+  window.location.replace("clases.php?dep="+a);
+}
 
 
 

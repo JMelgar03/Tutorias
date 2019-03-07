@@ -140,5 +140,80 @@
 
 
 
+		
+		static public function obtenerSeccionesT($conexion,$codigoTutor){
+			
+
+			$sql = "select* from seccion s
+			inner join clase c on id_Clase = s.idClase 
+			where idTutor =".$codigoTutor; 
+
+		  $resultado = $conexion->ejecutarConsulta($sql);
+		  $respuesta=array();
+            while (($fila= $conexion->obtenerFila($resultado))) {
+				
+				$sql2="select count(*) Matriculas from seccionxalumno sxa where id_Seccion=".$fila["id_Seccion"]."";
+				$resultado2 = $conexion->ejecutarConsulta($sql2);
+				$fila2 = $conexion->obtenerFila($resultado2);
+				$cuposDisponibles = $fila["Cupos"] - $fila2["Matriculas"];
+				/*$respuesta['nombreSeccion'] = $fila['NombreSeccion'];
+				$respuesta['horaInicial'] = $fila['Hora_Inicio'];
+				$respuesta['horaFinal'] = $fila['Hora_Fin'];
+				$respuesta['nombreMateria'] = $fila['NombreClase'];
+				$respuesta['dias'] = $fila['Dias'];
+				$respuesta['cupos'] = $cuposDisponibles;*/
+
+				echo '<div class="card">'
+				.'<div class="card-body">'
+					.'<h5 class="card-title">'.$fila['NombreSeccion'].'</h5>'
+					.'<div class="row">'
+						.'<div class = "col-10">'
+							.'<p class="card-text"> Materia: '.$fila['NombreClase'].'</p>'
+								.'<div class="row">'
+									.'<div class="col-6">'
+										.'<p class="card-text"> Hora Inicial: '.$fila['Hora_Inicio'].'</p>'
+									.'</div>'
+									.'<div class="col-6">'
+										.'<p class="card-text"> Hora Final: '.$fila['Hora_Fin'].'</p>'
+									.'</div><br><br>'
+								.'</div>'
+							.'<p class="card-text"> Dias: '.$fila['Dias'].'</p>'
+							.'<p class="card-text"> Cupos Disponibles: '.$cuposDisponibles.'</p>'
+						.'</div>'
+						.'<div class = "col-2">'
+							.'<div class="img-container"><img src="img/imgunah/cropped-logo-2.png" class="logo-seccion"></div>'
+							.'<p class="card-text card-calificacion"> Calificación: </p>'
+						.'</div>'
+					.'</div>'
+				.'</div>'
+				.'<input type="button" class="btn btn-danger" onclick="eliminarSeccion('.$fila['id_Seccion'].')" value="Elimar">'
+			.'</div>';
+				
+			}
+
+		}
+
+
+		static public function eliminarSeccion($conexion,$codigoSeccion){
+			$sql = "delete from seccion  
+			where id_Seccion =".$codigoSeccion; 
+			$resultado = $conexion->ejecutarConsulta($sql);
+			echo $conexion->getError();
+			echo '<h3>Seccion Eliminada</h3>';
+		
+		
+		}
+
+
+		static public function crearSeccionT($conexion,$Hora_Inicio,$Hora_Fin,$Dias,$idClase,$NombreSeccion,$Cupos,$idAula,$idTutor){
+				$sql = 'INSERT INTO seccion (Hora_Inicio,Hora_Fin,Dias,idClase,NombreSeccion,Cupos,idAula,idTutor) 
+									Values ('.$Hora_Inicio.','.$Hora_Fin.',"'.$Dias.'",'.$idClase.','.$NombreSeccion.','.$Cupos.','.$idAula.','.$idTutor.')';
+				echo $sql;
+				echo'----------------';
+				$resultado = $conexion->ejecutarConsulta($sql);
+				
+				echo $conexion->getError();
+
+		}
 	}
 ?>

@@ -2,6 +2,8 @@
 
  session_start();
  
+ $_SESSION['idDepto']= $_GET['dep'];
+
 ?>
 
 <!DOCTYPE html>
@@ -49,13 +51,13 @@
           <ul class="navbar-nav ml-auto">
             
             <li class="nav-item">
-              <a class="nav-link" href="index.php">Página Principal</a>
+              <a class="nav-link" href="HomeEstudiante.php">Página Principal</a>
             </li>
              <li class="nav-item">
               <a class="nav-link" href="about.php">Opcion</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Perfil.php">
+              <a class="nav-link" href="Perfil.html">
                 <?php 
                   echo '<label>'.$_SESSION["email"].'</label>'
                 ?>
@@ -108,47 +110,34 @@
         </div>
       </div>
     </nav>
-    
     <br>
     <br>
-    <!-- Page Content -->
+
     <div class="container" >
-      <h1>Departamentos</h1>
-      <div class="row" id="div-contenedor">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
+        <div class="row" id="div-contenedor-2">
+
+        </div>   
     </div>
 
 
 
 
-
-
-
-    <!--===============================================================================================-->  
-  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-  <!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-  <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
-  <!--===============================================================================================-->
-    <script src="vendor/tilt/tilt.jquery.min.js"></script>
-    <script >
-      $('.js-tilt').tilt({
-        scale: 1.1
-      })
-    </script>
-  <!--===============================================================================================-->
-    <script src="js/main.js"></script>
-    <script src="js/jmfunciones.js"></script>
-
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+      <script src="vendor/bootstrap/js/popper.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+      <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+      <script src="vendor/tilt/tilt.jquery.min.js"></script>
+      <script >
+        $('.js-tilt').tilt({
+          scale: 1.1
+        })
+      </script>
+    <!--===============================================================================================-->
+      <script src="js/main.js"></script>
+      <script src="js/jmfunciones.js"></script>
     </body>
-  </html>
+    </html>
+    

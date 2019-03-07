@@ -49,9 +49,8 @@
 				<img src="'.$fila['imagen'].'" class="card-img-top" alt="...">
 				<div class="card-body">
 				  <h5 class="card-title">'.$fila['NombreDepartamento'].'</h5>
-				  <input type="text"  style="display:none" id="txt-id-departamento-clase" value="'.$fila['idDepartamentoxCarrera'].'">
 				  <p class="card-text">Aqui se encuentran todas las clases que pertenecen al departamento de '.$fila['NombreDepartamento'].'</p>
-				  <a href="#" class="btn btn-primary">Ver clases</a>
+				  <input  type="button" onclick="verClases('.$fila['idDepartamentoxCarrera'].')" class="btn btn-primary" value="Ver clases">
 				</div>
 			  </div>
 			  </div>';
