@@ -127,7 +127,8 @@ class Usuario{
 			$_SESSION['numeroCuenta'] = $datos['NumeroCuenta'];
 			$_SESSION['carrera'] = $datos['NombreCarrera'];	
 			$_SESSION['telefono'] = $datos['Telefono'];
-			
+			$_SESSION['nombreYApellido'] =  $datos['Nombre1'].$datos['Apellido1'];
+			$_SESSION['idAlumno'] = $datos['idAlumno'];
 
 		$respuesta["idTipoUsuario"]=$fila["idTipoUsuario"];
 	}else{

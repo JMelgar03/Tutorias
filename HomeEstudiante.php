@@ -49,7 +49,7 @@
           <ul class="navbar-nav ml-auto">
             
             <li class="nav-item">
-              <a class="nav-link" href="index.php">Página Principal</a>
+              <a class="nav-link" href="HomeEstudiante.php">Página Principal</a>
             </li>
              <li class="nav-item">
               <a class="nav-link" href="about.php">Opcion</a>

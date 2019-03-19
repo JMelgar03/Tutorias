@@ -186,8 +186,16 @@
 						.'</div>'
 					.'</div>'
 				.'</div>'
-				.'<input type="button" class="btn btn-danger" onclick="eliminarSeccion('.$fila['id_Seccion'].')" value="Elimar">'
-			.'</div>';
+				.'<div>'
+					.'<input type="button" class="btn btn-danger" style=" height:40px;" onclick="eliminarSeccion('.$fila['id_Seccion'].')" value="Elimar Seccion">'
+					.'<input type="button" class="btn btn-primary" style="color: white;" value="Agregar Comunicado" onclick="agregarNoticia('.$fila['id_Seccion'].')">'
+					.'<a class="btn btn-success" href="#"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onclick="mostrarNoticia('.$fila['id_Seccion'].')">
+					Ver Comunicado
+				  </a>'
+	            .'</div>'		
+			.'</div>
+			<br>
+			<br>';
 				
 			}
 

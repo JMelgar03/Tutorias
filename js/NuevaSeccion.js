@@ -73,7 +73,7 @@ $("#btn-crearSeccion").click(function(){
 										$("input[name='week[]']:checked").map(function(){
 											dias +=$(this).val();
 										});
-										alert(dias);
+										
 											var parametro = "nombreSeccion="+$("#txt-nombreSeccion").val()+
 															"&slc-materia="+$('#slc-materia').val()+
 															"&slc-edificio="+$('#slc-edificio').val()+
@@ -89,7 +89,7 @@ $("#btn-crearSeccion").click(function(){
 																	success:function(respuesta){
 																	  console.log(respuesta);
 																	  alert('Seccion Creada!');
-																	  window.location.href='HomeTutor.html';
+																	  window.location.href='HomeTutor.php';
 																	},
 																	error:function(e){
 												  

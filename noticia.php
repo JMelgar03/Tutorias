@@ -1,3 +1,8 @@
+<?php
+ session_start();
+ $_SESSION['idSeccion'] = $_GET['sec'];
+?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -49,7 +54,7 @@
         
 
         <?php
-            include("php/conexion.php");
+          //  include("php/conexion.php");
         ?>                        
 
           <!--<div class="demo-content">
@@ -65,8 +70,8 @@
             </div>
           </div> -->
 
-          <?php if(isset($message)) { ?> <div class="error"><?php echo $message; ?></div> <?php } ?>
-          <?php if(isset($success)) { ?> <div class="success"><?php echo $success;?></div> <?php } ?>
+           <?php /*if(isset($message)) { ?> <div class="error"><?php echo $message; ?></div> <?php } ?>
+          <?php if(isset($success)) { ?> <div class="success"><?php echo $success;?></div> <?php } */?>
 
         
 
@@ -80,20 +85,20 @@
 
           <p class="lead">
 
-              <form name="frmNotification" id="frmNotification" action="php/agregarnotificacion.php" method="post" >
+              <!--<form name="frmNotification" id="frmNotification" action="php/agregarnotificacion.php" method="post" > -->
                 <div class="form-group">
                  <!-- <label for="autor">Autor de la Notificacion </label> -->
-                  <input type="text" class="form-control" name="autor" id="autor" placeholder="Ingresar Autor" required>
+                  <input type="text" class="form-control" name="autor" id="txt-asunto" placeholder="Ingresar Asunto" required>
                 </div>
                 <div class="form-group">
                  <!-- <label for="mensaje">Mensaje a Notificar </label>-->
-                  <textarea class="form-control" name="mensaje" id="mensaje" rows="3" placeholder="Mensaje" required></textarea>
+                  <textarea class="form-control" name="mensaje" id="txt-mensaje" rows="3" placeholder="Mensaje" required></textarea>
                 </div>
                 <div class="form-group">
-                  <input type="submit" name="add" id="btn-send" value="Agregar Notificacion">
+                  <input type="button" name="add" id="btn-publicar" value="Agregar Publicacion" onclick="publicar()">
                 </div>
 
-              </form>            
+              <!--</form> -->           
 
           </p>
 
@@ -120,6 +125,7 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
     <script src="js/popper.min.js"></script>
+    <script src="js/noticia.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>

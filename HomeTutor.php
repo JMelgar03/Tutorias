@@ -1,8 +1,7 @@
 <?php
-
  session_start();
- 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,9 +29,7 @@
 
       <!-- Custom styles for this template -->
       <link href="css/modern-business.css" rel="stylesheet">
-
-      
-
+      <link href="css/homeTutor.css" rel="stylesheet">
     </head>
   
       <body>
@@ -48,7 +45,7 @@
           <ul class="navbar-nav ml-auto">
             
             <li class="nav-item">
-              <a class="nav-link" href="index.php">Página Principal</a>
+              <a class="nav-link" href="HomeTutor.php">Página Principal</a>
             </li>
              <li class="nav-item">
               <a class="nav-link" href="about.php">Opcion</a>
@@ -80,14 +77,63 @@
         </div>
       </div>
     </nav>
-    
+
+
+    <!-- ....................................INICIO MODAL................................................-->
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Comunicados</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+            <!-- ..............Noticia y comentarios..................-->
+            <div id="div-noticias">
+                <div class="media">
+                  <img src="img/perfil-vacio.jpg" class="mr-3" alt="Smiley face" width="40" height="40">
+                  <div class="media-body">
+                    <h5 class="mt-0 asunto">Asunto</h5>
+                      <label clas="descripcion">
+                      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                      </label>
+                    <div class="media mt-3">
+                        <a class="mr-3" href="#">
+                          <img src="img/perfil-vacio.jpg" class="mr-3" alt="Smiley face"width="25" height="25">
+                        </a>
+                        <div class="media-body">
+                            <h5 class="mt-0">Nombre Usuario</h5>
+                              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+              </div>
+                  <textArea class="form-control" placeHolder="Escribe un comentario."></textArea>
+                  <input type="button" class="btn" value="Comentar" >
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="btn-verificar-correo">Verificar</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- ....................................FIN MODAL...................................................-->
     <br>
     <br>
     <!-- Page Content -->
     <div class="container">
 
       <div>
-        Secciones Impartidas
+       <label class="label_secciones"> Secciones Impartidas </label>
       </div>
 
       <div id="seccionesContainer">
@@ -117,7 +163,7 @@
       </script>
     <!--===============================================================================================-->
       <script src="js/main.js"></script>
-      <script src="js/HomeEstudiante.js"></script>
+      <script src="js/HomeTutor.js"></script>
 
     </body>
   </html>

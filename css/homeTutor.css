@@ -1,0 +1,23 @@
+.asunto{
+	color:#09b0ed;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.descripcion{
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.div_noticia{
+	background: #dee1e2;
+}
+
+.div_comentario{
+	background: #99e0ff ;
+}
+
+.label_secciones{
+  font-size: 25px;
+  font-weight: bold;
+}

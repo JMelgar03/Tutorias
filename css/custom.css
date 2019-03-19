@@ -86,3 +86,8 @@ font-size: 35px;
   color: #fff;
   text-align: center;
 }
+
+.label_secciones{
+  font-size: 25px;
+  font-weight: bold;
+}
