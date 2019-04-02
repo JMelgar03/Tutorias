@@ -243,5 +243,10 @@ echo $conexion->getError();
 
 }
 
+static public function eliminarTutores($conexion){
+	$sql='';
+
+}
+
 }
 ?>

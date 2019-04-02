@@ -51,7 +51,7 @@
 
          case'desactivarTutor':
          include ('../class/class-usuario1.php');
-         Usuario::desactivarTutor($conexion,$_POST['idAlumno'];
+         Usuario::desactivarTutor($conexion,$_POST['idAlumno']);
          break;
 
    case 'verificar_respuesta':
