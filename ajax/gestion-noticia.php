@@ -25,10 +25,22 @@
 			include("../class/class-noticia.php");
             Noticia::comentarNoticia($conexion,$_POST['idNoticia'],$_POST['idAlumno'],$_POST['txt-comentario']);
             break;
+
+            case 'eliminarNoticia':
+			include("../class/class-noticia.php");
+            Noticia::eliminarNoticia($conexion,$_POST['idNoticia']);
+            break;
+
+            case 'eliminarComentario':
+			include("../class/class-noticia.php");
+            Noticia::eliminarComentario($conexion,$_POST['idComentario']);
+            break;
             
         default:
             echo'Opcion invalida.';
         break;
+
+       
     }
-    
+    $conexion->cerrarConexion();
 ?>

@@ -44,9 +44,9 @@
 				  </div>
 				</div> ';*/
 
-				echo'<div class="col-sm-4">
+				echo'<div class="col-sm-4 mt-4">
 				<div class="card" style="width: 18rem;">
-				<img src="'.$fila['imagen'].'" class="card-img-top" alt="...">
+				<img src="'.$fila['imagen'].'" class="card-img-top" width="200" height="200" alt="...">
 				<div class="card-body">
 				  <h5 class="card-title">'.$fila['NombreDepartamento'].'</h5>
 				  <p class="card-text">Aqui se encuentran todas las clases que pertenecen al departamento de '.$fila['NombreDepartamento'].'</p>

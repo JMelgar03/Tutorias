@@ -223,5 +223,102 @@
 				echo $conexion->getError();
 
 		}
+
+
+		static public function obtenerSeccionesE($conexion,$codigoEstudiante){
+			$sql = "select* from seccion s
+			inner join clase c on id_Clase = s.idClase
+			inner join seccionxalumno sxa on s.id_Seccion = sxa.id_Seccion
+			where sxa.idAlumno =".$codigoEstudiante; 
+
+		  $resultado = $conexion->ejecutarConsulta($sql);
+		  $respuesta=array();
+            while (($fila= $conexion->obtenerFila($resultado))) {
+				echo '<div class="card" id="\'div'.$fila['id_Seccion'].'\'">'
+				.'<div class="card-body">'
+					.'<h5 class="card-title">'.$fila['NombreSeccion'].'</h5>'
+					.'<div class="row">'
+						.'<div class = "col-10">'
+							.'<p class="card-text"> Materia: '.$fila['NombreClase'].'</p>'
+								.'<div class="row">'
+									.'<div class="col-6">'
+										.'<p class="card-text"> Hora Inicial: '.$fila['Hora_Inicio'].'</p>'
+									.'</div>'
+									.'<div class="col-6">'
+										.'<p class="card-text"> Hora Final: '.$fila['Hora_Fin'].'</p>'
+									.'</div><br><br>'
+								.'</div>'
+							.'<p class="card-text"> Dias: '.$fila['Dias'].'</p>'
+						.'</div>'
+						.'<div class = "col-2">'
+							.'<div class="img-container"><img src="img/imgunah/cropped-logo-2.png" class="logo-seccion"></div>'
+							.'<p class="card-text card-calificacion"> Calificación: </p>'
+						.'</div>'
+					.'</div>'
+				.'</div>'
+				.'<div>'
+					.'<a class="btn btn-success" href="#"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onclick="mostrarNoticia('.$fila['id_Seccion'].')">
+					Ver Comunicado
+				  </a>
+				  <input type="button" class="btn btn-danger" value="Abandonar" onclick="abandonarSeccion('.$fila['id_Seccion'].')"'
+	            .'</div>'		
+			.'</div>
+			<br>
+			<br>';
+			
+			}
+		}
+
+
+	static public function obtenerSeccionesEM($conexion,$codigoClase){
+
+
+		$sql = "select* from seccion s
+		inner join clase c on id_Clase = s.idClase 
+		where id_Clase =".$codigoClase; 
+
+	  $resultado = $conexion->ejecutarConsulta($sql);
+	  $respuesta=array();
+		while (($fila= $conexion->obtenerFila($resultado))) {
+			
+			$sql2="select count(*) Matriculas from seccionxalumno sxa where id_Seccion=".$fila["id_Seccion"]."";
+			$resultado2 = $conexion->ejecutarConsulta($sql2);
+			$fila2 = $conexion->obtenerFila($resultado2);
+			$cuposDisponibles = $fila["Cupos"] - $fila2["Matriculas"];
+			echo 
+				'<option value="'.$fila['id_Seccion'].'">Cupos:'.$cuposDisponibles.' HoraInicio: '.$fila['Hora_Inicio'].' HoraFinal: '.$fila['Hora_Fin'].'</option>';
+				
+		}
+
+
+		}
+
+
+		static public function matricularSeccion($conexion,$idSeccion,$idAlumno){
+			$sql = 'INSERT INTO seccionxalumno (id_Seccion,idAlumno) VALUES ('.$idSeccion.','.$idAlumno.')';
+			$resultado = $conexion->ejecutarConsulta($sql);
+			echo  $conexion->getError();
+			echo 'Matriculada con exito!';
+		}
+
+
+		static public function seccionMatriculada($conexion,$idSeccion,$idAlumno){
+			$sql = 'SELECT * FROM seccionxalumno where id_Seccion='.$idSeccion.' AND idAlumno='.$idAlumno;
+			$resultado = $conexion->ejecutarConsulta($sql);
+			$cantidadRegistros = $conexion->cantidadRegistros($resultado);
+			if($cantidadRegistros == 1){
+				echo 1;
+			}else{
+				echo 0;
+			}
+			echo  $conexion->getError();
+		}
+
+
+		static public function abandonarSeccion($conexion,$idSeccion,$idAlumno){
+			$sql='Delete from seccionxalumno where id_Seccion = '.$idSeccion.' And idAlumno= '.$idAlumno;
+			$conexion->ejecutarConsulta($sql);
+			echo $conexion->getError();
+		}
 	}
 ?>

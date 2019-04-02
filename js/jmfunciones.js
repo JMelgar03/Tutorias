@@ -15,6 +15,9 @@ $.ajax({
  });
 
 
+        $("#div-contenedor").html('<div class="spinner-border" role="status">'+
+          '<span class="sr-only">Loading...</span>'+
+          '</div>');
  $.ajax({
   url:"ajax/getInfo.php?accion=departamentoclase",
          data:"",
@@ -243,8 +246,10 @@ $("#btn-iniciar-sesion-estudiante").click(function(){
                       {
                         window.location = "HomeEstudiante.php";
                       }
-                      else{
+                      else if(respuesta.idTipoUsuario==2){
                         window.location = "HomeTutor.php";
+                      }else{
+                        window.location = "HomeAdministrador.php"
                       }
 						         }
          						else

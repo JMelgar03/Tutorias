@@ -67,6 +67,17 @@ session_start();
 			Seccion::obtenerSeccionesT($conexion,$_SESSION["idTutor"]);
 			break;
 
+			case'seccionesE':
+        	include('../class/class-seccion.php');
+			Seccion::obtenerSeccionesE($conexion,$_SESSION["idAlumno"]);
+			break;
+			
+			case'ObtenerSeccionesE':
+        	include('../class/class-seccion.php');
+			Seccion::obtenerSeccionesEM($conexion,$_POST['idClase']);
+			break;
+
+
         case'detallematricula':
         	include('../class/class-detalle-matricula.php');
         	DetalleMatricula:: obtenerDetalleMatricula($conexion);

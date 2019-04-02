@@ -119,7 +119,48 @@ function eliminarSeccion(a){
 	   }
 
 });
-  }
+	}
+	
+
+	function eliminarNoticia(a){
+		var parametro = 'idNoticia='+a;
+		$.ajax({
+			url:"ajax/gestion-noticia.php?accion=eliminarNoticia",
+			 data:parametro,
+			 method:"POST",
+			 success:function(respuesta){
+	
+			 alert(respuesta);
+					
+			 window.location= 'HomeTutor.php';
+			 },
+			 error:function(e){
+	
+				console.log(e);
+			 }
+	
+	});
+		}
+
+
+		function eliminarComentario(a){
+			var parametro = 'idComentario='+a;
+			$.ajax({
+				url:"ajax/gestion-noticia.php?accion=eliminarComentario",
+				 data:parametro,
+				 method:"POST",
+				 success:function(respuesta){
+		
+				 alert('Eliminado');
+				 window.location= 'HomeTutor.php';
+				 },
+				 error:function(e){
+		
+					console.log(e);
+				 }
+		
+		});
+			}
 
   function agregarNoticia(a){
     window.location.replace("noticia.php?sec="+a);

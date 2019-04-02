@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +21,7 @@
   <link rel="stylesheet" type="text/css" href="css/util.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <link rel="stylesheet" type="text/css" href="css/custom.css">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -117,6 +117,7 @@
 
 
   <!--FIN MODAL--------------------------------------------------------------------- -->
+ <div style="margin-left: 150px">
   <div class="limiter">
     <div class="container-login100">
       <div class="wrap-login100">
@@ -129,15 +130,15 @@
             Inicio de sesión | Tutorias
           </span>
 
-          <div class="wrap-input100 validate-input" data-validate = "Cuenta requerida">
-            <input class="input100" type="text" id="txt-correo" name="cuenta" placeholder="Correo">
+          <div class="wrap-input100 validate-input login" data-validate = "Cuenta requerida">
+            <input class="input100 " type="text" id="txt-correo" name="cuenta" placeholder="Correo">
             <span class="focus-input100"></span>
             <span class="symbol-input100">
               <i class="fa fa-user-circle-o" aria-hidden="true"></i>
             </span>
           </div>
 
-          <div class="wrap-input100 validate-input" data-validate = "Contraseña requerida">
+          <div class="wrap-input100 validate-input login" data-validate = "Contraseña requerida">
             <input class="input100" type="password" id="txt-password" name="contraseña" placeholder="Contraseña">
             <span class="focus-input100"></span>
             <span class="symbol-input100">
@@ -145,9 +146,10 @@
             </span>
           </div>
 
-          <div class="container-login100-form-btn">
-            <button  class="login100-form-btn" id="btn-iniciar-sesion-estudiante">
+          <div class="">
+            <button  class="login100-form-btn login" id="btn-iniciar-sesion-estudiante">
               Iniciar sesión
+              </button>
           </div>
 
           <div class="text-center p-t-12">
@@ -169,7 +171,7 @@
       </div>
     </div>
   </div>
-  
+</div>
         <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">

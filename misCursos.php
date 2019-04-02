@@ -1,9 +1,5 @@
 <?php
-
  session_start();
- 
- $_SESSION['idDepto']= $_GET['dep'];
-
 ?>
 
 <!DOCTYPE html>
@@ -19,24 +15,21 @@
       <title>Tutorias</title>
       <link rel="icon" href="img/imgunah/logo.png" sizes="24x24" type="image/svg">
 
-
       <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="css/clases.css">
       <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css"> 
       <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
       <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
       <link rel="stylesheet" type="text/css" href="css/util.css">
       <link rel="stylesheet" type="text/css" href="css/main.css">
+      <link rel="stylesheet" type="text/css" href="css/HomeEstudiante.css">
 
       <!-- Bootstrap core CSS -->
       <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
       <!-- Custom styles for this template -->
       <link href="css/modern-business.css" rel="stylesheet">
-
-      <script src="js/misFunciones.js"></script>
-
+      <link href="css/homeTutor.css" rel="stylesheet">
     </head>
   
       <body>
@@ -55,22 +48,18 @@
               <a class="nav-link" href="HomeEstudiante.php">Página Principal</a>
             </li>
              <li class="nav-item">
-              <a class="nav-link" href="misCursos.php">Mis Cursos</a>
+              <a class="nav-link" href="about.php">Opcion</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Perfil.php">
-                <?php 
-                  echo '<label>'.$_SESSION["email"].'</label>'
-                ?>
-              </a>
+              <a class="nav-link" href="Perfil.php"><?php echo $_SESSION['email']; ?></a>
             </li>
-            <!--<li class="nav-item dropdown">
+            <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Ingresar
+               Cerrar Sesion
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                <a class="dropdown-item" href="index.php">Login</a>
-              --> 
+                <a class="dropdown-item" href="index.php">Logout</a>
+                
         <!--        <a class="dropdown-item" href="portfolio-3-col.html"></a>
                 <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
                 <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a> -->
@@ -82,57 +71,51 @@
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
                 <a class="dropdown-item" href="manualUsuario.pdf">Manual de usuario</a>
               </div>
-            
-
-           <!-- </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Blog
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                <a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
-                <a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
-                <a class="dropdown-item" href="blog-post.html">Blog Post</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Other Pages
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                <a class="dropdown-item" href="full-width.html">Full Width Page</a>
-                <a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
-                <a class="dropdown-item" href="faq.html">FAQ</a>
-                <a class="dropdown-item" href="404.html">404</a>
-                <a class="dropdown-item" href="pricing.html">Pricing Table</a> -->
               </div>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <br>
-    <br>
 
+
+        <!-- ....................................INICIO MODAL................................................-->
 
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Secciones Disponibles:</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Comunicados</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
           <div class="form-group">
-          <select id="slc-secciones" class="form-control">
-                <option class="form-control" value="">Seleccione Una Seccion a Matricular</option>
-                <option class="form-control" value="" id="materia" name="materia"></option>
-                </select>
-                <label class="lbl-matricula" id="lbl-matricula">Seccion Ya Matriculada.</label>
-                <br>
-                <button class="btn btn-primary mt-2" id="btn-matricular">Matricular</button>
+            <!-- ..............Noticia y comentarios..................-->
+            <div id="div-noticias-E">
+                <div class="media">
+                  <img src="img/perfil-vacio.jpg" class="mr-3" alt="Smiley face" width="40" height="40">
+                  <div class="media-body">
+                    <h5 class="mt-0 asunto">Asunto</h5>
+                      <label clas="descripcion">
+                      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                      </label>
+                    <div class="media mt-3">
+                        <a class="mr-3" href="#">
+                          <img src="img/perfil-vacio.jpg" class="mr-3" alt="Smiley face"width="25" height="25">
+                        </a>
+                        <div class="media-body">
+                            <h5 class="mt-0">Nombre Usuario</h5>
+                              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+              </div>
+                  <textArea class="form-control" placeHolder="Escribe un comentario."></textArea>
+                  <input type="button" class="btn" value="Comentar" >
             </div>
           </div>
       </div>
@@ -147,22 +130,31 @@
 
 
 
-    <div class="container" >
-        <div class="row" id="div-contenedor-2">
+    <br>
+    <br>
+    <!-- Page Content -->
+    <div class="container">
 
-        </div>   
-    </div>
+      <div>
+       <label class="label_secciones"> Secciones Matriculadas </label>
+      </div>
+
+      <div id="seccionesContainer-estudiante">
+
+      </div>
+
+
 
 
 
 
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
+      <!--===============================================================================================-->
       <script src="vendor/bootstrap/js/popper.js"></script>
       <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
+      <!--===============================================================================================-->
       <script src="vendor/select2/select2.min.js"></script>
-    <!--===============================================================================================-->
+      <!--===============================================================================================-->
       <script src="vendor/tilt/tilt.jquery.min.js"></script>
       <script >
         $('.js-tilt').tilt({
@@ -171,8 +163,7 @@
       </script>
     <!--===============================================================================================-->
       <script src="js/main.js"></script>
-      <script src="js/jmfunciones.js"></script>
-      <script src="js/clases.js"></script>
+      <script src="js/misCursos.js"></script>
+
     </body>
-    </html>
-    
+  </html>

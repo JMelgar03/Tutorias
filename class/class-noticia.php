@@ -74,8 +74,13 @@
             while (($fila= $conexion->obtenerFila($resultado))) {
 				
 
-			echo '<div class="media div_noticia">
-				<img src="img/perfil-vacio.jpg" class="mr-3" alt="Smiley face" width="40" height="40">
+			echo '<div class="media div_noticia">';
+				if($_SESSION['idTipoUsuario']==2){
+				echo'<input type="button" class="btn btn-danger" style="color: white;" value="X" onClick="eliminarNoticia('.$fila['idNoticia'].')">';
+			}else{
+				echo'';
+			}
+				echo'<img src="img/perfil-vacio.jpg" class="mr-3" alt="Smiley face" width="40" height="40">
 				<div class="media-body">
 				  <h5 class="mt-0 asunto">'.$fila['asunto'].'</h5>
 					<label clas="descripcion">
@@ -91,9 +96,13 @@
 							<div class="media-body">
 								<h5 class="mt-0">'.$fila2['Nombre1'].' '.$fila2['Apellido1'].'</h5>
 								 '.$fila2['comentario'].'
-							</div>
-							<input type="button" class="btn btn-danger" style="color: white;" value="X" onClick="eliminarComentario('.$fila2['idComentario'].')">
-						  </div>';
+							</div>';
+							if($_SESSION['idTipoUsuario']==2){
+								echo'<input type="button" class="btn btn-danger" style="color: white;" value="X" onClick="eliminarComentario('.$fila2['idComentario'].')">';
+							}else{
+								echo'';
+							}
+						  echo'</div>';
 						  }
 				 echo '</div>
 				 </div>
@@ -113,6 +122,22 @@
 		 echo $conexion->getError();
 		 
 		}	
+
+
+		static public function eliminarNoticia($conexion,$idNoticia){
+			$sql= ('Delete from Comentario where idNoticia='.$idNoticia);
+			$sql2 = ('Delete from noticias where idNoticia='.$idNoticia);
+			$conexion->ejecutarConsulta($sql);
+			$conexion->ejecutarConsulta($sql2);
+			echo $conexion->getError();
+		}
+
+		static public function eliminarComentario($conexion,$idComentario){
+
+			$sql = ('Delete from Comentario where idComentario='.$idComentario);
+			$conexion->ejecutarConsulta($sql);
+			echo $conexion->getError();
+		}
 }
 ?>
 

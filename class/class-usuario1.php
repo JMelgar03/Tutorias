@@ -106,6 +106,7 @@ class Usuario{
 	if ($cantidadRegistros==1){
 		$fila = $conexion->obtenerFila($resultado);
 		$respuesta["estatus"]=1;
+		
 		$_SESSION["email"] = $fila["email"];
 		$_SESSION["idTipoUsuario"] = $fila["idTipoUsuario"];
 		if( $fila["idTipoUsuario"] == 2)
@@ -131,6 +132,7 @@ class Usuario{
 			$_SESSION['idAlumno'] = $datos['idAlumno'];
 
 		$respuesta["idTipoUsuario"]=$fila["idTipoUsuario"];
+		$respuesta["estado"]= $datos["estado"]; 
 	}else{
 		$respuesta["estatus"]=0;
 	}
@@ -211,6 +213,33 @@ if ($cantidadRegistros==1){
 echo $conexion->getError();
 echo json_encode($respuesta);
 
+
+}
+
+
+static public function obtenerTutores($conexion){
+	$sql = 'SELECT a.idAlumno, Nombre1, Apellido1, NumeroCuenta, email, estado
+	FROM alumno a
+	INNER JOIN usuario u ON a.idUsuario = u.idUsuario
+	INNER JOIN tipousuario tu ON u.idTipoUsuario = tu.idTipoUsuario
+	WHERE u.idTipoUsuario = 2';
+
+	$resultado = $conexion->ejecutarConsulta($sql);
+	$i=1;
+	while( ($fila = $conexion->obtenerFila($resultado)))
+	{
+		echo  '<tr>
+				<th scope="row">'.$i.'</th>
+				<td>'.$fila['Nombre1'].'</td>
+				<td>'.$fila['Apellido1'].'</td>
+				<td>'.$fila['NumeroCuenta'].'</td>
+				<td>'.$fila['email'].'</td>
+				<td>'.$fila['estado'].'</td>
+				<td><input type="button" class="btn btn-danger" value="X" onclick="desactivarTutor('.$fila['idAlumno'].')"> </td>
+			   </tr>';
+			$i++;
+	}
+echo $conexion->getError();
 
 }
 

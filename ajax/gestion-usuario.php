@@ -44,6 +44,16 @@
       Usuario::verificarCorreo($conexion,$_POST["txt-correo"]);
       break;
 
+      case'obtenerTutores':
+         include ('../class/class-usuario1.php');
+         Usuario::obtenerTutores($conexion);
+         break;
+
+         case'desactivarTutor':
+         include ('../class/class-usuario1.php');
+         Usuario::desactivarTutor($conexion,$_POST['idAlumno'];
+         break;
+
    case 'verificar_respuesta':
       include ('../class/class-usuario1.php');
       Usuario::verificarRespuesta($conexion,$_POST['txt-correo'],$_POST['txt-respuesta2']);
@@ -52,4 +62,5 @@
    		# code...
    		break;
    }
+   $conexion->cerrarConexion();
 ?>

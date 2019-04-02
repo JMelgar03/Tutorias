@@ -21,6 +21,21 @@ include("../class/class-conexion.php");
 	include('../class/class-seccion.php');
 	Seccion::eliminarSeccion($conexion,$_POST['idSeccion']);
 	break;
+
+	case'matricularSeccion':
+	include('../class/class-seccion.php');
+	Seccion::matricularSeccion($conexion,$_POST['idSeccion'],$_SESSION['idAlumno']);
+	break;
+
+	case'seccionMatriculada':
+	include('../class/class-seccion.php');
+	Seccion::seccionMatriculada($conexion,$_POST['idSeccion'],$_SESSION['idAlumno']);
+	break;
+
+	case'abandonarSeccion':
+	include('../class/class-seccion.php');
+	Seccion::abandonarSeccion($conexion,$_POST['idSeccion'],$_SESSION['idAlumno']);
+	break;
    	
    	default:
    	   echo 'opcion invalida';

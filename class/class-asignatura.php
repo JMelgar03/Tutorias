@@ -42,14 +42,16 @@
 		static public function obtenerAsignaturas($conexion,$codigoDepartamento){
 
           $resultado = $conexion->ejecutarConsulta('SELECT * FROM clase where idDepartamentoxCarrera ='.$codigoDepartamento);
-            while (($fila= $conexion->obtenerFila($resultado))) {
+		  $respuesta= array();
+		  while (($fila= $conexion->obtenerFila($resultado))) {
+		
 				echo 
-				'<div class="col-sm-6">
+				'<div class="col-sm-6 mt-4">
 					<div class="card">
 				  		<div class="card-body">
 						<h5 class="card-title">'.$fila['CodigoClase'].' '.$fila['NombreClase'].'</h5>
 						<p class="card-text">Consulte la disponibilidad de las tutorias.</p>
-						<input type="button" class="btn btn-primary" onclick="obtenerSecciones('.$fila['id_Clase'].')" value="Ver Disponibilidad">
+						<input type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" class="btn btn-primary" onclick="obtenerSecciones('.$fila['id_Clase'].')" value="Ver Disponibilidad">
 				  </div>
 				</div>
 			  </div>';
