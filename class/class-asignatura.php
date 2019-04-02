@@ -52,7 +52,8 @@
 						<h5 class="card-title">'.$fila['CodigoClase'].' '.$fila['NombreClase'].'</h5>
 						<p class="card-text">Consulte la disponibilidad de las tutorias.</p>
 						<input type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" class="btn btn-primary" onclick="obtenerSecciones('.$fila['id_Clase'].')" value="Ver Disponibilidad">
-				  </div>
+				  		<input type="button" data-toggle="modal" data-target="#exampleModal2" data-whatever="@mdo" class="btn btn-warning" value="Solicitar Seccion" onclick="solicitarSeccion('.$fila['id_Clase'].')" >
+					</div>
 				</div>
 			  </div>';
 			}

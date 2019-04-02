@@ -20,13 +20,40 @@ $(document).ready(function(){
 });
 
 function desactivarTutor(a){
-    var parametro = 'idAlumno='+a;
+	var txt;
+	var r = confirm("En Realidad Desea Desactivar El Tutor");
+	if (r == true) {
+	
+		var parametro = 'idAlumno='+a;
     $.ajax({
 		url:"ajax/gestion-usuario.php?accion=desactivarTutor",
 			   data:parametro,
 			   method:"POST",
 			   success:function(respuesta){
+					window.location = 'HomeAdministrador.php';
+			   
+			},
+			   error:function(e){
+	   
+				  console.log(e);
+			   }
+	   
+		});
 
+
+	} else {
+		alert('Cancelado!');
+	}
+   /* */
+}
+
+function activarTutor(a){
+	var parametro = 'idAlumno='+a;
+    $.ajax({
+		url:"ajax/gestion-usuario.php?accion=activarTutor",
+			   data:parametro,
+			   method:"POST",
+			   success:function(respuesta){
 					window.location = 'HomeAdministrador.php';
 			   
 			},

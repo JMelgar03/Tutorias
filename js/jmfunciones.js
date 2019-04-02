@@ -241,21 +241,25 @@ $("#btn-iniciar-sesion-estudiante").click(function(){
         					
                   success: function(respuesta){
          					if(respuesta.estatus==1)
-         						{
-                      if(respuesta.idTipoUsuario == 1)
+         						{  
+                      if(respuesta.estatus2==3)
                       {
-                        window.location = "HomeEstudiante.php";
-                      }
-                      else if(respuesta.idTipoUsuario==2){
-                        window.location = "HomeTutor.php";
+                       window.location = "cuentaDesactivada.html";
                       }else{
-                        window.location = "HomeAdministrador.php"
+                          if(respuesta.idTipoUsuario == 1)
+                          {
+                            window.location = "HomeEstudiante.php";
+                          }
+                          else if(respuesta.idTipoUsuario==2){
+                            window.location = "HomeTutor.php";
+                          }else{
+                            window.location = "HomeAdministrador.php"
+                          }
                       }
 						         }
-         						else
-           							{
-            							alert("usuario no encontrado.");
-           							}
+                    else{
+                      alert('Usuario No Encontrado!');
+                    }
         						},
         						
                     error:function(e){

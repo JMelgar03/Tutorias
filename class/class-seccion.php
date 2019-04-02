@@ -234,38 +234,49 @@
 		  $resultado = $conexion->ejecutarConsulta($sql);
 		  $respuesta=array();
             while (($fila= $conexion->obtenerFila($resultado))) {
-				echo '<div class="card" id="\'div'.$fila['id_Seccion'].'\'">'
-				.'<div class="card-body">'
-					.'<h5 class="card-title">'.$fila['NombreSeccion'].'</h5>'
-					.'<div class="row">'
-						.'<div class = "col-10">'
-							.'<p class="card-text"> Materia: '.$fila['NombreClase'].'</p>'
-								.'<div class="row">'
-									.'<div class="col-6">'
-										.'<p class="card-text"> Hora Inicial: '.$fila['Hora_Inicio'].'</p>'
-									.'</div>'
-									.'<div class="col-6">'
-										.'<p class="card-text"> Hora Final: '.$fila['Hora_Fin'].'</p>'
-									.'</div><br><br>'
+				$sql2 = 'SELECT a.estado FROM alumno a 
+				INNER JOIN tutor t on a.idAlumno = t.idAlumno
+				INNER JOIN seccion s on t.idTutor = s.idTutor
+				WHERE s.id_Seccion = '.$fila['id_Seccion'];
+				$resultado2 = $conexion->ejecutarConsulta($sql2);
+				$fila2 = $conexion->obtenerFila($resultado2);
+				if($fila2['estado'] == 'A')
+				{
+						echo '<div class="card" id="\'div'.$fila['id_Seccion'].'\'">'
+						.'<div class="card-body">'
+							.'<h5 class="card-title">'.$fila['NombreSeccion'].'</h5>'
+							.'<div class="row">'
+								.'<div class = "col-10">'
+									.'<p class="card-text"> Materia: '.$fila['NombreClase'].'</p>'
+										.'<div class="row">'
+											.'<div class="col-6">'
+												.'<p class="card-text"> Hora Inicial: '.$fila['Hora_Inicio'].'</p>'
+											.'</div>'
+											.'<div class="col-6">'
+												.'<p class="card-text"> Hora Final: '.$fila['Hora_Fin'].'</p>'
+											.'</div><br><br>'
+										.'</div>'
+									.'<p class="card-text"> Dias: '.$fila['Dias'].'</p>'
 								.'</div>'
-							.'<p class="card-text"> Dias: '.$fila['Dias'].'</p>'
+								.'<div class = "col-2">'
+									.'<div class="img-container"><img src="img/imgunah/cropped-logo-2.png" class="logo-seccion"></div>'
+									.'<p class="card-text card-calificacion"> Calificación: </p>'
+								.'</div>'
+							.'</div>'
 						.'</div>'
-						.'<div class = "col-2">'
-							.'<div class="img-container"><img src="img/imgunah/cropped-logo-2.png" class="logo-seccion"></div>'
-							.'<p class="card-text card-calificacion"> Calificación: </p>'
-						.'</div>'
-					.'</div>'
-				.'</div>'
-				.'<div>'
-					.'<a class="btn btn-success" href="#"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onclick="mostrarNoticia('.$fila['id_Seccion'].')">
-					Ver Comunicado
-				  </a>
-				  <input type="button" class="btn btn-danger" value="Abandonar" onclick="abandonarSeccion('.$fila['id_Seccion'].')"'
-	            .'</div>'		
-			.'</div>
-			<br>
-			<br>';
-			
+						.'<div>'
+							.'<a class="btn btn-success" href="#"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onclick="mostrarNoticia('.$fila['id_Seccion'].')">
+							Ver Comunicado
+						</a>
+						<input type="button" class="btn btn-danger" value="Abandonar" onclick="abandonarSeccion('.$fila['id_Seccion'].')"'
+						.'</div>'		
+					.'</div>
+					<br>
+					<br>';
+				}else{
+					echo '<label>Seccion No Disponible por el momento.</label>
+					<br>';
+				}
 			}
 		}
 

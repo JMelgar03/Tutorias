@@ -117,6 +117,9 @@ class Usuario{
 			   WHERE u.idUsuario =".$fila['idUsuario']);
 			   $datos2 = $conexion->obtenerFila($consulta);
 			   $_SESSION['idTutor'] = $datos2['idTutor'];
+			   if($datos2['estado']=='I'){
+				$respuesta["estatus2"]=3;
+			   }
 		  
 			}
 
@@ -236,16 +239,36 @@ static public function obtenerTutores($conexion){
 				<td>'.$fila['email'].'</td>
 				<td>'.$fila['estado'].'</td>
 				<td><input type="button" class="btn btn-danger" value="X" onclick="desactivarTutor('.$fila['idAlumno'].')"> </td>
-			   </tr>';
+				<td><input type="button" class="btn btn-success" value="A" onclick="activarTutor('.$fila['idAlumno'].')"> </td>
+				</tr>';
 			$i++;
 	}
 echo $conexion->getError();
 
 }
 
-static public function eliminarTutores($conexion){
-	$sql='';
+static public function desactivarTutor($conexion,$idAlumno){
+	$sql='UPDATE alumno SET estado = "I" where idAlumno='.$idAlumno;
+	$conexion->ejecutarConsulta($sql);
+	if($conexion->getError())
+	{
+		Echo 'No se pudo desactivar';
+		echo $conexion->getError();
+	}else{
+		echo 'Desactivado con exito!.';
+	}
+}
 
+static public function activarTutor($conexion,$idAlumno){
+	$sql='UPDATE alumno SET estado = "A" where idAlumno='.$idAlumno;
+	$conexion->ejecutarConsulta($sql);
+	if($conexion->getError())
+	{
+		Echo 'No se pudo activar';
+		echo $conexion->getError();
+	}else{
+		echo 'activado con exito!.';
+	}
 }
 
 }

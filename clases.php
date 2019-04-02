@@ -114,7 +114,7 @@
     <br>
     <br>
 
-
+  <!-- INICIO MODAL 1----------->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -142,9 +142,38 @@
     </div>
   </div>
 </div>
+<!-- FIN MODAL 1----------->
 
 
-
+<!-- INICIO MODAL 2----------->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Crear Solicitud:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+          <select id="slc-secciones" class="form-control">
+                <option class="form-control" value="">Seleccione Una Seccion a Matricular</option>
+                <option class="form-control" value="" id="materia" name="materia"></option>
+                </select>
+                <label class="lbl-matricula" id="lbl-matricula">Seccion Ya Matriculada.</label>
+                <br>
+                <button class="btn btn-primary mt-2" id="btn-matricular">Matricular</button>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- FIN MODAL 2----------->
 
 
     <div class="container" >
