@@ -30,6 +30,8 @@
     <link href="css/modern-business.css" rel="stylesheet">
 
     <script src="js/misFunciones.js"></script>
+    <script src="js/all.min.js"></script>
+    
 
   </head>
 
@@ -106,7 +108,13 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="btn-verificar-correo">Verificar</button>
+        <button type="button" class="btn btn-primary" id="btn-verificar-correo">Verificar
+        	<span>
+        	<i class="fas fa-search"></i>
+        </span>
+        </button>
+        	
+        </span>
       </div>
     </div>
   </div>
@@ -117,7 +125,7 @@
 
 
   <!--FIN MODAL--------------------------------------------------------------------- -->
- <div style="margin-left: 150px">
+ <div class="">
   <div class="limiter">
     <div class="container-login100">
       <div class="wrap-login100">
@@ -152,7 +160,7 @@
               </button>
           </div>
 
-          <div class="text-center p-t-12">
+          <div class="text-center p-t-12 col-">
             <span class="txt1">
               Olvidaste
             </span>

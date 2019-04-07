@@ -41,7 +41,9 @@ $(document).ready(function(){
 			   error:function(e){
 	   
 				  console.log(e);
-			   }
+				 }
+				 
+				 
 	   
 		});
 	
@@ -94,6 +96,23 @@ $(document).ready(function(){
 		+'</div>'
 		$("#seccionesContainer").append(card)*/
 	
+
+		$.ajax({
+			url:"ajax/getInfo.php?accion=solicitudesNot",
+					 data:"",
+					 method:"POST",
+					 success:function(respuesta){
+						$("#solicitudes-notificacion").html(respuesta);
+					},
+					error:function(e){
+			
+					 console.log(e);
+					}
+					
+					
+			
+		 });
+
 
 	$("#btn-crearSeccion").click(function(){
 		window.location.href='NuevaSeccion.html';
@@ -222,6 +241,10 @@ function comentarNoticia(a,nombre,idAlumno){
 		$('#txt-noticia-'+a).css("background-color", "red");
 	 }
 
+}
+
+function verListado(a){
+	window.location = "listadoEstudiantes.php?idSeccion="+a;
 }
 
   

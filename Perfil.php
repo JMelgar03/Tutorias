@@ -44,7 +44,7 @@ session_start();
             echo 'href="HomeTutor.php"';
         }else{
           echo 'href="HomeEstudiante.php"';
-        } ?>><img src="img/imgunah/logo.png">Universidad Nacional Autónoma de Honduras</a>
+        } ?>><img src="img/imgunah/logo.png">UNAH</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

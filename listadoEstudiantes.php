@@ -1,3 +1,7 @@
+<?php
+session_start();
+$_SESSION['idSecEstudiantes'] = $_GET['idSeccion'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin-Tutorias</title>
+    <title>Solicitud-Tutorias</title>
     <link rel="icon" href="img/imgunah/logo.png" sizes="24x24" type="image/svg">
 
 
@@ -26,8 +30,6 @@
     <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
 
-    <script src="js/misFunciones.js"></script>
-
   </head>
 
   <body>
@@ -36,14 +38,16 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
 
-        <a class="navbar-brand" href="cuentaDesactivada.html">
-            <img src="img/imgunah/logo.png">UNAH</a>
+        <a class="navbar-brand" 
+        href="HomeTutor.php"><img src="img/imgunah/logo.png">UNAH</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            
+          <li class="nav-item">
+              <a class="nav-link" href="HomeTutor.php">Atras</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="index.php">Salir</a>
             </li>
@@ -54,18 +58,38 @@
 
 
 <br>
-<label style="Font-size: 50px;">Cuenta Desactivada</label>
+<label style="Font-size: 50px;">Lista De Estudiantes</label>
   <div>
-    <p ><h2>Estimado usuario su cuenta ha sido desactivada escriba un correo a 
-        <a style="font-size: 30px" href="#">unahtutorias2019@gmail.com</a> para mas información.</h2></p>
+      <table class="table col-xs-12">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Cuenta</th>
+              <th scope="col">Correo</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody id="listaEstudiantes">
+
+          </tbody>
+      </table>
 
   </div>
     
   <br>
-  <br>
-  <br>
-  <br>
-  <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
@@ -77,7 +101,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="js/HomeAdministrador.js"></script>
+    <script type="text/javascript" src="js/listadoEstudiantes.js"></script>
   </body>
 
 </html>

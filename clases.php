@@ -44,7 +44,7 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
 
-        <a class="navbar-brand" href="index.php"><img src="img/imgunah/logo.png">Universidad Nacional Autónoma de Honduras</a>
+        <a class="navbar-brand" href="index.php"><img src="img/imgunah/logo.png">UNAH</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -117,14 +117,14 @@
   <!-- INICIO MODAL 1----------->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div  style="width: 800px" class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Secciones Disponibles:</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div  class="modal-body">
           <div class="form-group">
           <select id="slc-secciones" class="form-control">
                 <option class="form-control" value="">Seleccione Una Seccion a Matricular</option>
@@ -157,13 +157,65 @@
       </div>
       <div class="modal-body">
           <div class="form-group">
-          <select id="slc-secciones" class="form-control">
-                <option class="form-control" value="">Seleccione Una Seccion a Matricular</option>
-                <option class="form-control" value="" id="materia" name="materia"></option>
-                </select>
-                <label class="lbl-matricula" id="lbl-matricula">Seccion Ya Matriculada.</label>
+
+          <div class="col-6">
+              <div class="form-group row">
+                <label for="example-tel-input" class="col-4 col-form-label"><p>Hora Inicial</p></label>
+                <div class="col-8">
+                    <select id="slc-horaInicial2" class="form-control">
+                    <option class="form-control" >Hora Inicial</option>
+                        <option class="form-control" value="070000" name="inicio">7:00AM</option>
+                        <option class="form-control" value="080000" name="inicio">8:00AM</option>
+                        <option class="form-control" value="090000" name="inicio">9:00AM</option>
+                        <option class="form-control" value="100000" name="inicio">10:00AM</option>
+                        <option class="form-control" value="110000" name="inicio">11:00AM</option>
+                        <option class="form-control" value="120000" name="inicio">12:00PM</option>
+                        <option class="form-control" value="130000" name="inicio">1:00PM</option>
+                        <option class="form-control" value="140000" name="inicio">2:00PM</option>
+                        <option class="form-control" value="150000" name="inicio">3:00PM</option>
+                        <option class="form-control" value="160000" name="inicio">4:00PM</option>
+                    </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="form-group row">
+                <label for="example-tel-input" class="col-4 col-form-label"><p>Hora Final</p></label>
+                <div class="col-8">
+                    <select id="slc-horaFinal2" class="form-control">
+                    <option class="form-control" >Hora Final</option>
+                        <option class="form-control" value="080000" name="final">8:00AM</option>
+                        <option class="form-control" value="090000" name="final">9:00AM</option>
+                        <option class="form-control" value="100000" name="final">10:00AM</option>
+                        <option class="form-control" value="110000" name="final">11:00AM</option>
+                        <option class="form-control" value="120000" name="final">12:00PM</option>
+                        <option class="form-control" value="130000" name="final">1:00PM</option>
+                        <option class="form-control" value="140000" name="final">2:00PM</option>
+                        <option class="form-control" value="150000" name="final">3:00PM</option>
+                        <option class="form-control" value="160000" name="final">4:00PM</option>
+                        <option class="form-control" value="170000" name="final">5:00PM</option>
+                    </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+            <div class="col-12"><p>Dias Impartidos</p></div>
+            <div class="col-2"><input type="checkbox" name="week2[]" value="Lu"> Lunes</div>
+            <div class="col-2"><input type="checkbox" name="week2[]" value="Ma"> Martes</div>
+            <div class="col-2"><input type="checkbox" name="week2[]" value="Mi"> Miercoles</div>
+            <div class="col-2"><input type="checkbox" name="week2[]" value="Ju"> Jueves</div>
+            <div class="col-2"><input type="checkbox" name="week2[]" value="Vi"> Viernes</div>
+            <div class="col-2"><input type="checkbox" name="week2[]" value="Sa"> Sabado</div>
+
+          </div>
+
+
                 <br>
-                <button class="btn btn-primary mt-2" id="btn-matricular">Matricular</button>
+                <div id="div-contenedorBoton">
+
+                </div>
             </div>
           </div>
       </div>

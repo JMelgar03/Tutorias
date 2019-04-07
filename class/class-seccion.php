@@ -187,11 +187,12 @@
 					.'</div>'
 				.'</div>'
 				.'<div>'
-					.'<input type="button" class="btn btn-danger" style=" height:40px;" onclick="eliminarSeccion('.$fila['id_Seccion'].')" value="Elimar Seccion">'
+					.'<input type="button" class="btn btn-danger" style=" height:40px;" onclick="eliminarSeccion('.$fila['id_Seccion'].')" value="Eliminar Seccion">'
 					.'<input type="button" class="btn btn-primary" style="color: white;" value="Agregar Comunicado" onclick="agregarNoticia('.$fila['id_Seccion'].')">'
 					.'<a class="btn btn-success" href="#"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onclick="mostrarNoticia('.$fila['id_Seccion'].')">
 					Ver Comunicado
-				  </a>'
+				  </a>
+				  <input type="button" class="btn col-6" style=" height:40px; font-weight: bold" onclick="verListado('.$fila['id_Seccion'].')" value="Ver Listado">'
 	            .'</div>'		
 			.'</div>
 			<br>
@@ -207,7 +208,7 @@
 			where id_Seccion =".$codigoSeccion; 
 			$resultado = $conexion->ejecutarConsulta($sql);
 			echo $conexion->getError();
-			echo '<h3>Seccion Eliminada</h3>';
+			echo 'Seccion Eliminada';
 		
 		
 		}
@@ -227,8 +228,10 @@
 
 		static public function obtenerSeccionesE($conexion,$codigoEstudiante){
 			$sql = "select* from seccion s
-			inner join clase c on id_Clase = s.idClase
+			inner join clase c on c.id_Clase = s.idClase
 			inner join seccionxalumno sxa on s.id_Seccion = sxa.id_Seccion
+			INNER JOIN aula au on s.idAula = au.idAula
+			INNER JOIN edificio e on au.idEdificio = e.idEdificio
 			where sxa.idAlumno =".$codigoEstudiante; 
 
 		  $resultado = $conexion->ejecutarConsulta($sql);
@@ -256,7 +259,8 @@
 												.'<p class="card-text"> Hora Final: '.$fila['Hora_Fin'].'</p>'
 											.'</div><br><br>'
 										.'</div>'
-									.'<p class="card-text"> Dias: '.$fila['Dias'].'</p>'
+									.'<p class="card-text"> Dias: '.$fila['Dias'].'</p>
+									<p class="card-text"> Edificio: '.$fila['Nombre_edificio'].' Aula: '.$fila['NumerodeAula'].'</p>'
 								.'</div>'
 								.'<div class = "col-2">'
 									.'<div class="img-container"><img src="img/imgunah/cropped-logo-2.png" class="logo-seccion"></div>'
@@ -286,6 +290,8 @@
 
 		$sql = "select* from seccion s
 		inner join clase c on id_Clase = s.idClase 
+		inner join tutor t on s.idTutor = t.idTutor
+		inner join alumno a on t.idAlumno = a.idAlumno
 		where id_Clase =".$codigoClase; 
 
 	  $resultado = $conexion->ejecutarConsulta($sql);
@@ -297,7 +303,7 @@
 			$fila2 = $conexion->obtenerFila($resultado2);
 			$cuposDisponibles = $fila["Cupos"] - $fila2["Matriculas"];
 			echo 
-				'<option value="'.$fila['id_Seccion'].'">Cupos:'.$cuposDisponibles.' HoraInicio: '.$fila['Hora_Inicio'].' HoraFinal: '.$fila['Hora_Fin'].'</option>';
+				'<option value="'.$fila['id_Seccion'].'">Cupos:'.$cuposDisponibles.' HoraInicio: '.$fila['Hora_Inicio'].' HoraFinal: '.$fila['Hora_Fin'].' Dias: '.$fila['Dias'].' Tutor:'.$fila['Nombre1'].' '.$fila['Apellido1'].'</option>';
 				
 		}
 
@@ -330,6 +336,31 @@
 			$sql='Delete from seccionxalumno where id_Seccion = '.$idSeccion.' And idAlumno= '.$idAlumno;
 			$conexion->ejecutarConsulta($sql);
 			echo $conexion->getError();
+		}
+
+		static public function obtenerEstudiantes($conexion,$idSeccion){
+			$sql='SELECT a.idAlumno, a.Nombre1, a.Apellido1,a.NumeroCuenta, U.email  FROM Alumno a 
+			INNER JOIN seccionxalumno sxa on a.idAlumno = sxa.idAlumno
+			INNER JOIN seccion s on sxa.id_Seccion = s.id_Seccion
+			INNER JOIN usuario U ON A.idUsuario = U.idUsuario 
+			WHERE s.id_Seccion ='.$idSeccion;
+
+			$resultado = $conexion->ejecutarConsulta($sql);
+			
+			$i=1;
+				while( ($fila = $conexion->obtenerFila($resultado)))
+				{
+					echo  '<tr>
+							<th scope="row">'.$i.'</th>
+							<td>'.$fila['Nombre1'].'</td>
+							<td>'.$fila['Apellido1'].'</td>
+							<td>'.$fila['NumeroCuenta'].'</td>
+							<td>'.$fila['email'].'</td>
+							</tr>';
+						$i++;
+				}
+			echo $conexion->getError();
+
 		}
 	}
 ?>

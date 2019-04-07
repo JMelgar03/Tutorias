@@ -238,7 +238,7 @@ static public function obtenerTutores($conexion){
 				<td>'.$fila['NumeroCuenta'].'</td>
 				<td>'.$fila['email'].'</td>
 				<td>'.$fila['estado'].'</td>
-				<td><input type="button" class="btn btn-danger" value="X" onclick="desactivarTutor('.$fila['idAlumno'].')"> </td>
+				<td><input type="button" class="btn btn-danger" value="X" onclick="desactivarTutor('.$fila['idAlumno'].',\''.$fila['email'].'\')"> </td>
 				<td><input type="button" class="btn btn-success" value="A" onclick="activarTutor('.$fila['idAlumno'].')"> </td>
 				</tr>';
 			$i++;
@@ -247,7 +247,7 @@ echo $conexion->getError();
 
 }
 
-static public function desactivarTutor($conexion,$idAlumno){
+static public function desactivarTutor($conexion,$idAlumno,$email){
 	$sql='UPDATE alumno SET estado = "I" where idAlumno='.$idAlumno;
 	$conexion->ejecutarConsulta($sql);
 	if($conexion->getError())
@@ -255,7 +255,19 @@ static public function desactivarTutor($conexion,$idAlumno){
 		Echo 'No se pudo desactivar';
 		echo $conexion->getError();
 	}else{
-		echo 'Desactivado con exito!.';
+		
+		
+			//correo
+	 
+
+				$destino = $email;
+				$desde='from:'.'tutoriasnah2019';
+				$asunto='Cuenta Desactivada';
+				$mensaje='Estimado Usuario Su cuenta ha sido desactiva si cree que estamos en un error responder este correo.';
+	
+				mail($destino,$asunto,$mensaje,$desde);
+				echo 'Desactivado con exito!.';
+				//fin correo
 	}
 }
 

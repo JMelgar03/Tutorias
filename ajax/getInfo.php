@@ -81,7 +81,18 @@ session_start();
         case'detallematricula':
         	include('../class/class-detalle-matricula.php');
         	DetalleMatricula:: obtenerDetalleMatricula($conexion);
-        break;
+		break;
+		
+		case'obtenerEstudiantes':
+        	include('../class/class-seccion.php');
+			Seccion::obtenerEstudiantes($conexion,$_SESSION["idSecEstudiantes"]);
+			break;
+
+			case'solicitudesNot':
+        	include('../class/class-asignatura.php');
+			Asignatura::obtenerNotificacion($conexion);
+			break;
+
 		default:
 			echo "Acción inválida";
 			break;

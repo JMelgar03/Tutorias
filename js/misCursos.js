@@ -74,7 +74,9 @@ function comentarNoticia(a,nombre,idAlumno){
    }
 
    function abandonarSeccion(idSeccion){
-    parametro = 'idSeccion='+idSeccion;
+      var r = confirm("En realidad desea abandonar la seccion?");
+      if (r == true) {
+      parametro = 'idSeccion='+idSeccion;
     $.ajax({
         
         url:"ajax/gestion-matricula.php?accion=abandonarSeccion",
@@ -93,4 +95,7 @@ function comentarNoticia(a,nombre,idAlumno){
        
         });
 
+   }else{
+      alert('Cancelado!');
    }
+}

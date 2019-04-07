@@ -44,7 +44,7 @@ session_start();
             echo 'href="HomeAdministrador.php"';
         }else{
           echo 'href="index.php.php"';
-        } ?>><img src="img/imgunah/logo.png">Universidad Nacional Autónoma de Honduras</a>
+        } ?>><img src="img/imgunah/logo.png">UNAH</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -85,6 +85,14 @@ session_start();
     
 
     <!-- Footer -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <footer class="py-5 bg-dark">
       <div class="container">
         <p class="m-0 text-center text-white">Ingenieria del software &copy; Proyecto  2019</p>

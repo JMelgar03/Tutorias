@@ -19,12 +19,12 @@ $(document).ready(function(){
 	
 });
 
-function desactivarTutor(a){
+function desactivarTutor(a,correo){
 	var txt;
 	var r = confirm("En Realidad Desea Desactivar El Tutor");
 	if (r == true) {
 	
-		var parametro = 'idAlumno='+a;
+		var parametro = 'idAlumno='+a+'&correo='+correo;
     $.ajax({
 		url:"ajax/gestion-usuario.php?accion=desactivarTutor",
 			   data:parametro,
