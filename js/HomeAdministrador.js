@@ -16,6 +16,22 @@ $(document).ready(function(){
 			   }
 	   
 		});
+
+	$.ajax({
+		url:"ajax/getInfo.php?accion=centroEstudioAdmin",
+			   data:"",
+			   method:"POST",
+			   success:function(respuesta){
+
+					$("#listaCentroEstudio").html(respuesta);
+			   
+			},
+			   error:function(e){
+	   
+				  console.log(e);
+			   }
+	   
+		});
 	
 });
 

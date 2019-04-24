@@ -61,7 +61,9 @@ session_start();
 
 
 <br>
-<label style="Font-size: 50px;">Lista De Tutores</label>
+<br>
+<br>
+<label style="Font-size: 30px;">Lista De Tutores</label>
   <div>
       <table class="table col-xs-12">
           <thead class="thead-dark">
@@ -77,6 +79,24 @@ session_start();
             </tr>
           </thead>
           <tbody id="listaTutores">
+
+          </tbody>
+      </table>
+
+  </div>
+<label style="Font-size: 30px;">Lista Centros de Estudio</label>
+  <div>
+      <table class="table col-xs-12">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Centro de Estudio</th>
+              <th scope="col">Ciudad</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody id="listaCentroEstudio">
 
           </tbody>
       </table>

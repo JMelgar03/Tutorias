@@ -12,6 +12,11 @@ session_start();
 		case'centroEstudio':
 		 include("../class/class-centroEstudio.php");
 		 CentroEstudio::obtenerCentros($conexion);
+		break;
+
+		case'centroEstudioAdmin':
+		 include("../class/class-centroEstudio.php");
+		 CentroEstudio::obtenerCentrosAdmin($conexion);
 		break;	
 
 		case'Edificio':
