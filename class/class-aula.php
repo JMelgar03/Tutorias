@@ -58,5 +58,45 @@
                    }
 
         }
+
+        static public function obtenerAulaAdmin($conexion,$idEdificio){
+
+          $resultado = $conexion->ejecutarConsulta('Select A.idAula As idAula, A.NumerodeAula As numeroAula, A.Capacidad As capacidad
+			From aula A
+			Where A.idEdificio ='. $idEdificio);
+            $i = 1;
+            while (($fila= $conexion->obtenerFila($resultado))) {
+				echo  	'<tr>
+						<th scope="row">'.$i.'</th>
+						<td>'.$fila['numeroAula'].'</td>
+						<td>'.$fila['capacidad'].'</td>
+						<td><button class="btn btn-danger" onclick="eliminarAula('.$fila['idAula'].')"><i class="fa fa-trash"></i></button> </td>
+						</tr>';
+				$i++;
+			}
+			echo '<tr>
+				<td></td>
+				<td><input class="form-control" id="numeroAula'. $idEdificio .'"></td>
+				<td><input class="form-control" id="capacidad'.$idEdificio.'"></td>
+				<td><button class="btn btn-success" onclick="guardarAula('.$idEdificio.')"><i class="fa fa-plus"></i></button></td>
+			</tr>';
+
+		}
+
+		static public function eliminarAula($conexion, $idAula){
+
+          	$resultado = $conexion->ejecutarConsulta('DELETE FROM aula WHERE idAula='. $idAula );
+         	echo $conexion->getError();
+			echo 'Aula Eliminada';
+
+		}
+
+		static public function guardarAula($conexion, $numeroAula, $capacidad,$idEdificio){
+
+          	$resultado = $conexion->ejecutarConsulta('INSERT INTO aula(NumerodeAula,Capacidad,idEdificio) VALUES ("'. $numeroAula.'",' . $capacidad .','. $idEdificio .')' );
+         	echo $conexion->getError();
+			echo 'Aula Creada';
+
+		}
 	}
 ?>

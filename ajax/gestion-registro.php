@@ -32,7 +32,7 @@
 			$alumno->insertarAlumno($conexion);
 			break;
 		case 'guardarSeccion':
-		include("../class/class-seccion.php");
+			include("../class/class-seccion.php");
 			Seccion::crearSeccionT($conexion,$_POST['slc-horaInicial'],$_POST['slc-horaFinal'],$_POST['dias'],$_POST['slc-materia'],$_POST['nombreSeccion'],$_POST['txt-numeroCupos'],$_POST['slc-aula'],$_SESSION['idTutor']);
 			break;
 
@@ -54,10 +54,42 @@
 		case'editarAlumno':
 			include("../class/class-alumno1.php");
 			Alumno::editarAlumno($conexion,$_POST["pNombre"],$_POST['sNombre'],$_POST['pApellido'],$_POST['sApellido'],$_POST['cuenta'],$_POST['telefono'],$_SESSION['numeroCuenta']);
-		break;
-			default:
-			 	echo 'Opcion invalida.';
-			 break;
+			break;
+
+		case'eliminarCentro':
+			include("../class/class-centroEstudio.php");
+			CentroEstudio::eliminarCentro($conexion,$_POST["idCentro"]);
+			break;
+
+		case'guardarCentro':
+			include("../class/class-centroEstudio.php");
+			var_dump($_POST);
+			CentroEstudio::guardarCentro($conexion,$_POST['nombreCentro'],$_POST['idCiudad']);
+			break;
+
+		case'eliminarEdificio':
+			include("../class/class-edificio.php");
+			Edificio::eliminarEdificio($conexion,$_POST["idEdificio"]);
+			break;
+
+		case'guardarEdificio':
+			include("../class/class-edificio.php");
+			Edificio::guardarEdificio($conexion,$_POST["nombreEdificio"],$_POST["numeroAulas"],$_POST["idCentro"]);
+			break;
+
+		case'eliminarAula':
+			include("../class/class-aula.php");
+			Aula::eliminarAula($conexion,$_POST["idAula"]);
+			break;
+
+		case'guardarAula':
+			include("../class/class-aula.php");
+			Aula::guardarAula($conexion,$_POST["numeroAula"],$_POST["capacidad"],$_POST["idEdificio"]);
+			break;
+		
+		default:
+		 	echo 'Opcion invalida.';
+		 break;
 		}
 		$conexion->cerrarConexion();
 

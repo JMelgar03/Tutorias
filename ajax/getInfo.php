@@ -22,11 +22,21 @@ session_start();
 		case'Edificio':
 		 include("../class/class-edificio.php");
 		 Edificio::obtenerEdificiosT($conexion);
+		break;
+
+		case'edificioAdmin':
+		 include("../class/class-edificio.php");
+		 Edificio::obtenerEdificiosAdmin($conexion,$_POST['idCentroEstudio']);
 		break;	
 		
 		case 'ciudades':
 		include('../class/class-ciudad.php');
 		Ciudad::obtenerCiudades($conexion,$_POST["slc-centroEstudio"]);
+		break;
+
+		case 'ciudadesAdmin':
+		include('../class/class-ciudad.php');
+		Ciudad::obtenerCiudadesAdmin($conexion);
 		break;
 
 		case 'carreras':
@@ -60,6 +70,12 @@ session_start();
         
         	include('../class/class-aula.php');       
 			Aula::obtenerAula($conexion,$_POST['codigoEdificio']);
+        break;
+
+        case 'aulaAdmin':
+        
+        	include('../class/class-aula.php');       
+			Aula::obtenerAulaAdmin($conexion,$_POST['idEdificio']);
         break;
 
         case'secciones':

@@ -53,5 +53,19 @@
 			}
 				
 		}
+
+		public static function obtenerCiudadesAdmin($conexion){
+			$resultado = $conexion->ejecutarConsulta(
+						'SELECT *
+						FROM ciudad'
+					);
+
+		
+			while (($fila= $conexion->obtenerFila($resultado))) {
+				
+				echo '<option value="'.$fila['idCiudad'].'">'.$fila['NombreCiudad'].'</option>';
+			}
+				
+		}
 	}
 ?>

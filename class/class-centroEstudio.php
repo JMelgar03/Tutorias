@@ -63,9 +63,53 @@
 						<td>'.$fila['nombreCiudad'].'</td>
 						<td><button class="btn btn-danger" onclick="eliminarCentro('.$fila['idCentro'].')"><i class="fa fa-trash"></i></button> </td>
 						<td><button class="btn btn-info" onclick="verEdificios('.$fila['idCentro'].')"><i class="fa fa-sort"></i></button> </td>
-						</tr>';
+						</tr>
+						<tr>
+							<td colspan="4"><table class="table col-xs-12" id="edificios'.$fila['idCentro'].'" style="display:none;">
+					          <thead class="thead-light">
+					            <tr>
+					              <th scope="col">#</th>
+					              <th scope="col">Edificio</th>
+					              <th scope="col">Numero de Aulas</th>
+					              <th scope="col"></th>
+					              <th scope="col"></th>
+					            </tr>
+					          </thead>
+					          <tbody id="listaEdificios'. $fila['idCentro'] .'">
+					          </tbody>
+					      	</table></td>
+				      	</tr>';
 				$i++;
 			}
+			echo '<tr>
+				<td></td>
+				<td><input class="form-control" id="nombreCentro"></td>
+				<td>
+					<select class="form-control" id = "idCiudad">
+					  <option value="volvo">Volvo</option>
+					  <option value="saab">Saab</option>
+					  <option value="opel">Opel</option>
+					  <option value="audi">Audi</option>
+					</select>
+				</td>
+				<td><button class="btn btn-success" onclick="guardarCentro()"><i class="fa fa-plus"></i></button></td>
+			</tr>';
+
+		}
+
+		static public function eliminarCentro($conexion, $idCentro){
+
+          	$resultado = $conexion->ejecutarConsulta('DELETE FROM centrodeestudio WHERE idCentrodeEstudio='. $idCentro );
+         	echo $conexion->getError();
+			echo 'Centro Eliminado';
+
+		}
+
+		static public function guardarCentro($conexion, $nombreCentro, $idCiudad){
+
+          	$resultado = $conexion->ejecutarConsulta('INSERT INTO centrodeestudio(NombreCentro,ciudad_idCiudad) VALUES ("'. $nombreCentro.'",' . $idCiudad .')' );
+         	echo $conexion->getError();
+			echo 'Centro Creado';
 
 		}
 	}
