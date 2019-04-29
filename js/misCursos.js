@@ -99,3 +99,32 @@ function comentarNoticia(a,nombre,idAlumno){
       alert('Cancelado!');
    }
 }
+
+function reportar(idTutor)
+{
+  
+
+  
+   $.ajax({
+      url:"ajax/gestion-usuario.php?accion=reportar",
+      data:"idTutor="+idTutor,
+      method:"POST",
+      success:function(a){
+         console.log(a);
+         $('#seccionesContainer-estudiante').html(
+            '<div class="alert alert-warning alert-dismissible fade show" role="alert">'+
+            '<strong>Reporte Realizado!</strong> se realizo el reporte al tutor de esta seccion el administrador podra ver tu reporte y tomarlo en cuenta.'+
+            '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'+
+              '<span aria-hidden="true">&times;</span>'+
+            '</button>'+
+          '</div>'+
+         
+         $('#seccionesContainer-estudiante').html());
+
+      },
+      error:function(e){
+         console.log(e);
+
+      }
+   })
+}

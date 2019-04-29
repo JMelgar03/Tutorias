@@ -196,7 +196,8 @@ function guardarCentro(){
 	var txt;
 	var r = confirm("En realidad desea agregar este centro de estudio?");
 	if (r == true) {
-	
+	if( $("#nombreCentro").val()&&$("#idCiudad").val()){
+		
 		var parametro = 'nombreCentro='+ $("#nombreCentro").val()+'&'+'idCiudad='+$("#idCiudad").val();
     	console.log(parametro)
     	$.ajax({
@@ -218,7 +219,9 @@ function guardarCentro(){
 	   
 		});
 
-
+	}else{
+		alert('Ningun campo debe estar vacio.')
+	}
 	} else {
 		alert('Cancelado!');
 	}

@@ -192,8 +192,9 @@
 					.'<a class="btn btn-success" href="#"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onclick="mostrarNoticia('.$fila['id_Seccion'].')">
 					Ver Comunicado
 				  </a>
-				  <input type="button" class="btn col-6" style=" height:40px; font-weight: bold" onclick="verListado('.$fila['id_Seccion'].')" value="Ver Listado">'
-	            .'</div>'		
+				  
+				  <input type="button" class="btn col-6" style=" height:40px; font-weight: bold" onclick="verListado('.$fila['id_Seccion'].')" value="Listado" >'
+				  .'</div>'		
 			.'</div>
 			<br>
 			<br>';
@@ -272,8 +273,9 @@
 							.'<a class="btn btn-success" href="#"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onclick="mostrarNoticia('.$fila['id_Seccion'].')">
 							Ver Comunicado
 						</a>
-						<input type="button" class="btn btn-danger" value="Abandonar" onclick="abandonarSeccion('.$fila['id_Seccion'].')"'
-						.'</div>'		
+						<input type="button" class="btn btn-danger" value="Abandonar" onclick="abandonarSeccion('.$fila['id_Seccion'].')">'
+						.'<input type="button" class="ml-2 btn btn-warning" value="Reportar" onclick="reportar('.$fila['idTutor'].')">
+						</div>'		
 					.'</div>
 					<br>
 					<br>';

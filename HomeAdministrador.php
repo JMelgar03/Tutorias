@@ -73,6 +73,7 @@ session_start();
               <th scope="col">Apellido</th>
               <th scope="col">Cuenta</th>
               <th scope="col">Correo</th>
+              <th scope="col">Reportes</th>
               <th scope="col">Estado</th>
               <th scope="col"></th>
               <th scope="col"></th>

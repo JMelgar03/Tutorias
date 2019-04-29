@@ -63,6 +63,11 @@
       include ('../class/class-usuario1.php');
       Usuario::verificarRespuesta($conexion,$_POST['txt-correo'],$_POST['txt-respuesta2']);
       break;
+
+      case 'reportar':
+      include ('../class/class-usuario1.php');
+      Usuario::reportarTutor($conexion,$_POST['idTutor']);
+      break;
    	default:
    		# code...
    		break;

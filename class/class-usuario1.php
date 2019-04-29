@@ -221,10 +221,11 @@ echo json_encode($respuesta);
 
 
 static public function obtenerTutores($conexion){
-	$sql = 'SELECT a.idAlumno, Nombre1, Apellido1, NumeroCuenta, email, estado
+	$sql = 'SELECT a.idAlumno, Nombre1, Apellido1, NumeroCuenta, email, estado, t.reportes
 	FROM alumno a
 	INNER JOIN usuario u ON a.idUsuario = u.idUsuario
 	INNER JOIN tipousuario tu ON u.idTipoUsuario = tu.idTipoUsuario
+	INNER JOIN tutor t on a.idAlumno =  t.idAlumno
 	WHERE u.idTipoUsuario = 2';
 
 	$resultado = $conexion->ejecutarConsulta($sql);
@@ -237,6 +238,7 @@ static public function obtenerTutores($conexion){
 				<td>'.$fila['Apellido1'].'</td>
 				<td>'.$fila['NumeroCuenta'].'</td>
 				<td>'.$fila['email'].'</td>
+				<td>'.$fila['reportes'].'</td>
 				<td>'.$fila['estado'].'</td>
 				<td><input type="button" class="btn btn-danger" value="X" onclick="desactivarTutor('.$fila['idAlumno'].',\''.$fila['email'].'\')"> </td>
 				<td><input type="button" class="btn btn-success" value="A" onclick="activarTutor('.$fila['idAlumno'].')"> </td>
@@ -281,6 +283,16 @@ static public function activarTutor($conexion,$idAlumno){
 	}else{
 		echo 'activado con exito!.';
 	}
+}
+
+static public function reportarTutor($conexion,$idTutor){
+	$sql="SELECT * FROM tutor WHERE idTutor=".$idTutor;
+	$resultado = $conexion->ejecutarConsulta($sql);
+	$reporte = $conexion->obtenerFila($resultado);
+	$reporte1 = $reporte['reportes'] + 1;
+	$sql2 = "update tutor set reportes = ".$reporte1." where idTutor= ".$idTutor;
+	echo $sql2;
+	$conexion->ejecutarConsulta($sql2);
 }
 
 }
