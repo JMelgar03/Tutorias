@@ -28,6 +28,7 @@ session_start();
 
     <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/HomeEstudiante.css">
 
     <script src="js/misFunciones.js"></script>
 
@@ -36,7 +37,7 @@ session_start();
   <body>
 
     <!-- Navigation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar1">
       <div class="container">
 
         <a class="navbar-brand" 
@@ -50,14 +51,70 @@ session_start();
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            
-            <li class="nav-item">
-              <a class="nav-link" href="index.php">Salir</a>
+          <li class="nav-item">
+            <a class="nav-link" href="misCursos.php"><i class="fas fa-chalkboard fa-2x"></i><br>Mis Cursos</a>
+          </li>
+
+
+      </div>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-arrow-circle-down fa-2x"></i><br> Descargar
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+          <a class="dropdown-item" href="manualUsuario.pdf"><i class="fas fa-book"></i> Manual de usuario</a>
+        </div>
+      </li>
+
+      <!--empiezoo-->
+
+        
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user fa-2x"></i><br><?php
+         echo '<label>'  . $_SESSION["email"] . '</label>'
+           ?>
+
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+        <a class="dropdown-item" href="Perfil.php"><i class="fas fa-user"></i> Mi Perfil</a> 
+         <a class="dropdown-item" href="index.php"><i class="fas fa-user-times"></i> Cerar Sesion</a>
+
+          <!--        <a class="dropdown-item" href="portfolio-3-col.html"></a>
+                <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
+                <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a> -->
+        </div>
+      </li>
+
+
+      <!-- </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Blog
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                <a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
+                <a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
+                <a class="dropdown-item" href="blog-post.html">Blog Post</a>
+              </div>
             </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Other Pages
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                <a class="dropdown-item" href="full-width.html">Full Width Page</a>
+                <a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
+                <a class="dropdown-item" href="faq.html">FAQ</a>
+                <a class="dropdown-item" href="404.html">404</a>
+                <a class="dropdown-item" href="pricing.html">Pricing Table</a> -->
+    </div>
+    </li>
           </ul>
         </div>
       </div>
     </nav>
+    
 
 
 <br>
@@ -65,7 +122,7 @@ session_start();
     <div class="container">
 
       <!-- Page Heading/Breadcrumbs -->
-      <br><br> <h1 class="mt-4 mb-3"> Perfil
+      <br><br> <h1 class="mt-4 mb-3"> Perfil<br>
         <small id ="nombreUsuario"><?php echo $_SESSION['nombreCompleto'] ?></small>
       </h1>
 
@@ -86,12 +143,12 @@ session_start();
       <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-8 mb-4">
-          <h3 style="text-align: center;"> <strong>Datos Personales</strong></h3>
+          <h3 style="text-align: center;"> <strong class="tb">Datos Personales</strong></h3>
           <br>
           <br>
             <!--Formulario -->
           <div class="form-group row">
-            <label for="example-text-input" class="col-6 col-form-label"><p>Numero de Cuenta</p></label>
+            <label for="example-text-input" class="col-6 col-form-label"><p id="tb">Numero de Cuenta</p></label>
             <label for="example-text-input" class="col-6 col-form-label" id="numeroCuenta">
               <?php echo $_SESSION['numeroCuenta'] ?>
           </label>
@@ -99,7 +156,7 @@ session_start();
           <br>
 
           <div class="form-group row">
-            <label for="example-text-input" class="col-6 col-form-label"><p>Correo</p></label>
+            <label for="example-text-input" class="col-6 col-form-label"><p id="tb">Correo</p></label>
             <label for="example-text-input" class="col-6 col-form-label" id="correo">
             <?php echo $_SESSION['email'] ?>
             </label>
@@ -107,7 +164,7 @@ session_start();
           <br>
 
           <div class="form-group row">
-            <label for="example-text-input" class="col-6 col-form-label"><p>telefono</p></label>
+            <label for="example-text-input" class="col-6 col-form-label"><p id="tb">telefono</p></label>
             <label for="example-text-input" class="col-6 col-form-label" id="telefono">
             <?php echo $_SESSION['telefono'] ?>
 
@@ -116,7 +173,7 @@ session_start();
           <br>
 
           <div class="form-group row">
-            <label for="example-text-input" class="col-6 col-form-label"><p>carrera</p></label>
+            <label for="example-text-input" class="col-6 col-form-label"><p id="tb">carrera</p></label>
             <label for="example-text-input" class="col-6 col-form-label" id="carrera">
             <?php echo $_SESSION['carrera'] ?>
             </label>
@@ -216,6 +273,7 @@ session_start();
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="js/Perfil.js"></script>
+    <script src="js/all.min.js"></script>
   </body>
 
 </html>
