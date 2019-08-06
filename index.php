@@ -125,10 +125,10 @@
 
 
   <!--FIN MODAL--------------------------------------------------------------------- -->
- <div class="">
+ <div class="" style="margin: auto; padding: auto;">
   <div class="limiter">
-    <div class="container-login100">
-      <div class="wrap-login100">
+    <div class="container-login100" style="">
+      <div class="wrap-login100" style="margin: auto; padding: auto;">
         <div class="login100-pic js-tilt" data-tilt> 
           <img src="img/imgunah/logo2.png" alt="IMG"> 
         </div>
@@ -138,7 +138,7 @@
             Inicio de sesión | Tutorias
           </span>
 
-          <div class="wrap-input100 validate-input login" data-validate = "Cuenta requerida">
+          <div class="wrap-input100 validate-input login" style="margin: auto; padding: auto;" data-validate = "Cuenta requerida">
             <input class="input100 " type="text" id="txt-correo" name="cuenta" placeholder="Correo">
             <span class="focus-input100"></span>
             <span class="symbol-input100">
@@ -146,7 +146,7 @@
             </span>
           </div>
 
-          <div class="wrap-input100 validate-input login" data-validate = "Contraseña requerida">
+          <div class="wrap-input100 validate-input login mt-2"  style="margin: auto; padding: auto;" data-validate = "Contraseña requerida">
             <input class="input100" type="password" id="txt-password" name="contraseña" placeholder="Contraseña">
             <span class="focus-input100"></span>
             <span class="symbol-input100">
@@ -154,13 +154,16 @@
             </span>
           </div>
 
-          <div class="">
+          <div class="wrap-input100 validate-input login mt-2" style="margin-left: 45px; padding: auto;">
             <button  class="login100-form-btn login" id="btn-iniciar-sesion-estudiante">
               Iniciar sesión
               </button>
           </div>
+          <br>
+          <br>
 
-          <div class="text-center p-t-12 col-">
+          <div class="text-center p-t-12 ">
+          	<br>
             <span class="txt1">
               Olvidaste
             </span>
@@ -183,7 +186,7 @@
         <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Ingenieria del software &copy; Proyecto  2019</p>
+        <p class="m-0 text-center text-white">Industria del software &copy; Proyecto  2019</p>
       </div>
       <!-- /.container -->
     </footer>

@@ -34,6 +34,9 @@
 
       <!-- Custom styles for this template -->
       <link href="css/modern-business.css" rel="stylesheet">
+      <link hrel="stylesheet" type="text/css" href="css/fontawesome-free/all.min.css">
+
+      <link rel="stylesheet" type="text/css" href="css/HomeEstudiante.css">
 
       <script src="js/misFunciones.js"></script>
 
@@ -41,50 +44,54 @@
   
       <body>
         <!-- Navigation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
+    <nav class="navbar fixed-top navbar-expand-lg   fixed-top" id="navbar1">
+    <div class="container">
 
-        <a class="navbar-brand" href="HomeEstudiante.php"><img src="img/imgunah/logo.png">UNAH</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            
-            <li class="nav-item">
-              <a class="nav-link" href="HomeEstudiante.php">Página Principal</a>
-            </li>
-             <li class="nav-item">
-              <a class="nav-link" href="misCursos.php">Mis Cursos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Perfil.php">
-                <?php 
-                  echo '<label>'.$_SESSION["email"].'</label>'
-                ?>
-              </a>
-            </li>
-            <!--<li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Ingresar
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                <a class="dropdown-item" href="index.php">Login</a>
-              --> 
-        <!--        <a class="dropdown-item" href="portfolio-3-col.html"></a>
+      <a class="navbar-brand" href="HomeEstudiante.php"><img src="img/imgunah/logo.png">UNAH</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="misCursos.php"><i class="fas fa-chalkboard fa-2x"></i><br>Mis Cursos</a>
+          </li>
+
+
+      </div>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-arrow-circle-down fa-2x"></i><br> Descargar
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+          <a class="dropdown-item" href="manualUsuario.pdf"><i class="fas fa-book"></i> Manual de usuario</a>
+        </div>
+      </li>
+
+      <!--empiezoo-->
+
+        
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user fa-2x"></i><br><?php
+         echo '<label>'  . $_SESSION["email"] . '</label>'
+           ?>
+
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+        <a class="dropdown-item" href="Perfil.php"><i class="fas fa-user"></i> Mi Perfil</a> 
+         <a class="dropdown-item" href="index.php"><i class="fas fa-user-times"></i> Cerar Sesion</a>
+
+          <!--        <a class="dropdown-item" href="portfolio-3-col.html"></a>
                 <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
                 <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a> -->
-              </div>
-           <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Descargar
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                <a class="dropdown-item" href="manualUsuario.pdf">Manual de usuario</a>
-              </div>
-            
+        </div>
+      </li>
 
-           <!-- </li>
+
+      <!-- </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Blog
@@ -105,14 +112,17 @@
                 <a class="dropdown-item" href="faq.html">FAQ</a>
                 <a class="dropdown-item" href="404.html">404</a>
                 <a class="dropdown-item" href="pricing.html">Pricing Table</a> -->
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <br>
-    <br>
+    </div>
+    </li>
+    </ul>
+    </div>
+    </div>
+  </nav>
+
+  <br>
+  <br>
+
+
 
   <!-- INICIO MODAL 1----------->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -254,6 +264,7 @@
       <script src="js/main.js"></script>
       <script src="js/jmfunciones.js"></script>
       <script src="js/clases.js"></script>
+      <script src="js/all.min.js"></script>
     </body>
     </html>
     
