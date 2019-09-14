@@ -273,9 +273,12 @@
 							.'<a class="btn btn-success" href="#"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onclick="mostrarNoticia('.$fila['id_Seccion'].')">
 							Ver Comunicado
 						</a>
-						<input type="button" class="btn btn-danger" value="Abandonar" onclick="abandonarSeccion('.$fila['id_Seccion'].')">'
-						.'<input type="button" class="ml-2 btn btn-warning" value="Reportar" onclick="reportar('.$fila['idTutor'].')">
-						</div>'		
+						.<input type="button" class="btn btn-danger" value="Abandonar" onclick="abandonarSeccion('.$fila['id_Seccion'].')">'
+
+						.'<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1"  >
+ Reportar
+</button>'
+						.'</div>'		
 					.'</div>
 					<br>
 					<br>';

@@ -52,7 +52,7 @@ session_start();
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="misCursos.php"><i class="fas fa-chalkboard fa-2x"></i><br>Mis Cursos</a>
+            <a class="nav-link" href="#"><i class="fas fa-chalkboard fa-2x"></i><br>Mis Cursos</a>
           </li>
 
 

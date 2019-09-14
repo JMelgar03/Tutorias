@@ -164,6 +164,46 @@
 
 
 
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Reportar Tutor</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form>
+
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Categoria del reporte</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option value="1">Impuntualidad</option>
+      <option value="2">Conducta inmoral</option>
+      <option value="3">Acoso</option>
+      <option value="4">Falta de preparacion</option>
+      <option value="5">Trato mal</option>
+      <option value="6">Otro</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">De una descripcion del caso</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" >Enviar Reportes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 
     <br>
