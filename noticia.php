@@ -23,7 +23,7 @@
   <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
   <link rel="stylesheet" type="text/css" href="css/util.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
-  <link rel="stylesheet" type="text/css" href="css/custom.css">
+  <link rel="stylesheet" type="text/css" href="css/homeTutor.css">
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet"> 
@@ -42,7 +42,7 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="navbar1">
      
      <a class="navbar-brand" href="index.php"><img src="img/imgunah/logo.png">UNAH</a>
 
@@ -81,7 +81,7 @@
     <div class="container">
 
       <div class="starter-template">
-          <h1> Notificaciones  </h1
+          <h1> Notificaciones  </h1>
 
           <p class="lead">
 
@@ -108,7 +108,7 @@
 
     <section class="credito">
       <div align="center">
-          Desarrollado por <a href="" target="_blank">Ingenieria de software</a>
+          Desarrollado por <a href="" target="_blank">Industria de software</a>
       </div> 
     </section>
 

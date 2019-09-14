@@ -1,6 +1,5 @@
 <?php
 session_start();
-$_SESSION['idSecEstudiantes'] = $_GET['idSeccion'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +11,7 @@ $_SESSION['idSecEstudiantes'] = $_GET['idSeccion'];
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Solicitud-Tutorias</title>
+    <title>Admin-Tutorias</title>
     <link rel="icon" href="img/imgunah/logo.png" sizes="24x24" type="image/svg">
 
 
@@ -22,7 +21,6 @@ $_SESSION['idSecEstudiantes'] = $_GET['idSeccion'];
   <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
   <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
   <link rel="stylesheet" type="text/css" href="css/util.css">
-  <link rel="stylesheet" type="text/css" href="css/main.css">
   <link rel="stylesheet" type="text/css" href="css/homeTutor.css">
 
     <!-- Bootstrap core CSS -->
@@ -30,6 +28,8 @@ $_SESSION['idSecEstudiantes'] = $_GET['idSeccion'];
 
     <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
+
+    <script src="js/misFunciones.js"></script>
 
   </head>
 
@@ -40,15 +40,17 @@ $_SESSION['idSecEstudiantes'] = $_GET['idSeccion'];
       <div class="container">
 
         <a class="navbar-brand" 
-        href="HomeTutor.php"><img src="img/imgunah/logo.png">UNAH</a>
+        <?php if($_SESSION['idTipoUsuario']==3){
+            echo 'href="HomeAdministrador.php"';
+        }else{
+          echo 'href="index.php.php"';
+        } ?>><img src="img/imgunah/logo.png">UNAH</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-              <a class="nav-link" href="HomeTutor.php">Atras</a>
-            </li>
+            
             <li class="nav-item">
               <a class="nav-link" href="index.php">Salir</a>
             </li>
@@ -59,43 +61,47 @@ $_SESSION['idSecEstudiantes'] = $_GET['idSeccion'];
 
 
 <br>
+<br>
+<br>
 
-  <div class="container">
-  <label style="Font-size: 50px;">Lista De Estudiantes</label>
-      <table class="table col-xs-12">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Apellido</th>
-              <th scope="col">Cuenta</th>
-              <th scope="col">Correo</th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody id="listaEstudiantes">
+ <div class="container">
+  <label style="Font-size: 30px;">Lista De Tutores</label>
+    <div>
+        <table class="table col-xs-12">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Cuenta</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Reportes</th>
+                <th scope="col">Estado</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody id="listaTutores">
 
-          </tbody>
-      </table>
+            </tbody>
+        </table>
 
-  </div>
-    
-  <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    </div>
+
+      
+
     <!-- Footer -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">IIndustria del software &copy; Proyecto  2019</p>
+        <p class="m-0 text-center text-white">Ingenieria del software &copy; Proyecto  2019</p>
       </div>
       <!-- /.container -->
     </footer>
@@ -103,7 +109,7 @@ $_SESSION['idSecEstudiantes'] = $_GET['idSeccion'];
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="js/listadoEstudiantes.js"></script>
+    <script type="text/javascript" src="js/HomeAdministrador.js"></script>
   </body>
 
 </html>

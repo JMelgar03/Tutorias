@@ -21,7 +21,7 @@ session_start();
   <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
   <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
   <link rel="stylesheet" type="text/css" href="css/util.css">
-  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/homeTutor.css">
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@ session_start();
   <body>
 
     <!-- Navigation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar1">
       <div class="container">
 
         <a class="navbar-brand" 
@@ -63,47 +63,37 @@ session_start();
 <br>
 <br>
 <br>
-<label style="Font-size: 30px;">Lista De Tutores</label>
-  <div>
-      <table class="table col-xs-12">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Apellido</th>
-              <th scope="col">Cuenta</th>
-              <th scope="col">Correo</th>
-              <th scope="col">Reportes</th>
-              <th scope="col">Estado</th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody id="listaTutores">
 
-          </tbody>
-      </table>
-
+ <div class="container" id="contenedor">
+  <div class="row">   
+ <div class="card" style="width: 18rem;">
+  <img src="img/tutor.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"> Administrar Tutores</h5>
+    <p class="card-text">Administre los tutores, elimine, edite o agregue mas</p>
+    <a href="listaTutores.php" class="btn btn-primary">Ver Lista</a>
   </div>
-<label style="Font-size: 30px;">Lista Centros de Estudio</label>
-  <div>
-      <table class="table col-xs-12">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Centro de Estudio</th>
-              <th scope="col">Ciudad</th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody id="listaCentroEstudio">
-
-          </tbody>
-      </table>
-
+</div>
+<div class="card" style="width: 18rem;">
+  <img src="img/mapa.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Centro de estudios</h5>
+    <p class="card-text">Administre los centros de estudio, elimine, edite o agregue mas</p>
+    <a href="listaTutores.php" class="btn btn-primary">Ver Lista</a>
   </div>
-    
+</div>
+<div class="card" style="width: 18rem;">
+  <img src="img/reportes.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Reportes</h5>
+    <p class="card-text">Revise aqui los reportes que los alumnos hacen de los docentes</p>
+    <a href="reportes.php" class="btn btn-primary">Revisar</a>
+  </div>
+</div>
+ </div>
+  
+ </div>
+      
 
     <!-- Footer -->
     <br>
