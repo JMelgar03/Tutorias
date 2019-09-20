@@ -170,7 +170,7 @@
 
           <div class="col-6">
               <div class="form-group row">
-                <label for="example-tel-input" class="col-4 col-form-label"><p>Hora Inicial</p></label>
+                <label for="example-tel-input" class="col-4 col-form-label"><p style="color: black;">Hora Inicial</p></label>
                 <div class="col-8">
                     <select id="slc-horaInicial2" class="form-control">
                     <option class="form-control" >Hora Inicial</option>
@@ -191,10 +191,10 @@
 
             <div class="col-6">
               <div class="form-group row">
-                <label for="example-tel-input" class="col-4 col-form-label"><p>Hora Final</p></label>
+                <label for="example-tel-input" class="col-4 col-form-label" ><p style="color: black;">Hora Final</p></label>
                 <div class="col-8">
                     <select id="slc-horaFinal2" class="form-control">
-                    <option class="form-control" >Hora Final</option>
+                    <option class="form-control"style="color: black;" >Hora Final</option>
                         <option class="form-control" value="080000" name="final">8:00AM</option>
                         <option class="form-control" value="090000" name="final">9:00AM</option>
                         <option class="form-control" value="100000" name="final">10:00AM</option>
@@ -211,7 +211,7 @@
             </div>
 
             <div class="row">
-            <div class="col-12"><p>Dias Impartidos</p></div>
+            <div class="col-12" style="color: black;"><p style="color: black;">Dias Impartidos</p></div>
             <div class="col-2"><input type="checkbox" name="week2[]" value="Lu"> Lunes</div>
             <div class="col-2"><input type="checkbox" name="week2[]" value="Ma"> Martes</div>
             <div class="col-2"><input type="checkbox" name="week2[]" value="Mi"> Miercoles</div>
