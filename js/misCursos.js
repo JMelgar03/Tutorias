@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 	listaSecciones=[];
 	$.ajax({
@@ -8,6 +9,26 @@ $(document).ready(function(){
 
                     $("#seccionesContainer-estudiante").html(respuesta);
                     	   
+			},
+            error:function(e){
+    
+               console.log(e);
+            }
+    
+     });
+
+     $.ajax({
+		url:"ajax/getInfo.php?accion=llenarCategorias",
+			   data:"",
+            method:"POST",
+            dataType:'json',
+			   success:function(respuesta){
+                  
+                  for(let i=0;i<Object.keys(respuesta).length;i++){
+                     
+                     
+                    $("#exampleFormControlSelect1").html( $("#exampleFormControlSelect1").html()+ '<option value="'+Object.keys(respuesta)[i]+'">'+respuesta[i+1]+'</option>');
+                  }
 			},
             error:function(e){
     
@@ -100,14 +121,14 @@ function comentarNoticia(a,nombre,idAlumno){
    }
 }
 
-function reportar(idTutor)
+function reportar()
 {
-  
+  var parametros = `slc-id-categoria=${$('#exampleFormControlSelect1').val()}&txt-descripcion=${$('#exampleFormControlTextarea1').val()}&idTutor=${$('#txtIdTutor').val()}`;
 
   
    $.ajax({
       url:"ajax/gestion-usuario.php?accion=reportar",
-      data:"idTutor="+idTutor,
+      data:parametros,
       method:"POST",
       success:function(a){
          console.log(a);
@@ -120,6 +141,7 @@ function reportar(idTutor)
           '</div>'+
          
          $('#seccionesContainer-estudiante').html());
+         $('#exampleFormControlTextarea1').val("")
 
       },
       error:function(e){
@@ -127,4 +149,8 @@ function reportar(idTutor)
 
       }
    })
+}
+
+function establecerIdTutor(idTutor){
+   $("#txtIdTutor").val(idTutor);
 }

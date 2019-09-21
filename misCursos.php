@@ -179,12 +179,7 @@
   <div class="form-group">
     <label for="exampleFormControlSelect1">Categoria del reporte</label>
     <select class="form-control" id="exampleFormControlSelect1">
-      <option value="1">Impuntualidad</option>
-      <option value="2">Conducta inmoral</option>
-      <option value="3">Acoso</option>
-      <option value="4">Falta de preparacion</option>
-      <option value="5">Trato mal</option>
-      <option value="6">Otro</option>
+     
     </select>
   </div>
 
@@ -196,7 +191,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" >Enviar Reportes</button>
+        <button type="button" class="btn btn-primary" onclick="reportar()">Enviar Reportes</button>
       </div>
     </div>
   </div>
@@ -214,9 +209,9 @@
       <div>
        <label class="label_secciones"> Secciones Matriculadas </label>
       </div>
-
+      <input type="hidden" id="txtIdTutor" value="0">
       <div id="seccionesContainer-estudiante">
-
+        
       </div>
 
 

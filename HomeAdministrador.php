@@ -79,7 +79,7 @@ session_start();
   <div class="card-body">
     <h5 class="card-title">Centro de estudios</h5>
     <p class="card-text">Administre los centros de estudio, elimine, edite o agregue mas</p>
-    <a href="listaTutores.php" class="btn btn-primary">Ver Lista</a>
+    <a href="listaCentros.php" class="btn btn-primary">Ver Lista</a>
   </div>
 </div>
 <div class="card" style="width: 18rem;">

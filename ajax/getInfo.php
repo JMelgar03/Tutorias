@@ -113,6 +113,11 @@ session_start();
         	include('../class/class-asignatura.php');
 			Asignatura::obtenerNotificacion($conexion);
 			break;
+		
+			case'llenarCategorias':
+        	include('../class/class-usuario1.php');
+			Usuario::obtenerCategorias($conexion);
+			break;
 
 		default:
 			echo "Acción inválida";

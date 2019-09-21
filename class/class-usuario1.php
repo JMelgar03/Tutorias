@@ -285,14 +285,27 @@ static public function activarTutor($conexion,$idAlumno){
 	}
 }
 
-static public function reportarTutor($conexion,$idTutor){
-	$sql="SELECT * FROM tutor WHERE idTutor=".$idTutor;
+static public function reportarTutor($conexion,$idTutor,$idCategoria,$descripcion){
+	$sql="INSERT INTO reporte (Descripcion, tutor_idTutor, idCategoriaReporte) VALUES ('".$descripcion."', '".$idTutor."', '".$idCategoria."'); ";
 	$resultado = $conexion->ejecutarConsulta($sql);
-	$reporte = $conexion->obtenerFila($resultado);
-	$reporte1 = $reporte['reportes'] + 1;
-	$sql2 = "update tutor set reportes = ".$reporte1." where idTutor= ".$idTutor;
-	echo $sql2;
-	$conexion->ejecutarConsulta($sql2);
+	echo $conexion->getError();
+}
+
+static public function obtenerCategorias($conexion){
+	$sql = "SELECT * FROM CategoriaReporte";
+	$resultado = $conexion->ejecutarConsulta($sql);
+	
+
+	
+
+	while( ($fila = $conexion->obtenerFila($resultado)))
+	{
+		$categorias[$fila['idCategoriaReporte']] = $fila['categoria'];
+		
+	}
+echo $conexion->getError();
+echo json_encode($categorias);
+
 }
 
 }

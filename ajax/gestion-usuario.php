@@ -66,7 +66,7 @@
 
       case 'reportar':
       include ('../class/class-usuario1.php');
-      Usuario::reportarTutor($conexion,$_POST['idTutor']);
+      Usuario::reportarTutor($conexion,$_POST['idTutor'],$_POST['slc-id-categoria'],$_POST['txt-descripcion']);
       break;
    	default:
    		# code...

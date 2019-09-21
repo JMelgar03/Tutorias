@@ -275,9 +275,10 @@
 						</a>
 						.<input type="button" class="btn btn-danger" value="Abandonar" onclick="abandonarSeccion('.$fila['id_Seccion'].')">'
 
-						.'<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1"  >
- Reportar
-</button>'
+						.'<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1" onclick="establecerIdTutor('.$fila['idTutor'].')">
+ 								Reportar
+							</button>'
+							
 						.'</div>'		
 					.'</div>
 					<br>
