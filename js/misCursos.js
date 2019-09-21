@@ -36,8 +36,36 @@ $(document).ready(function(){
             }
     
      });
+
+
 })
 
+var numEstrellas;
+
+
+function obtEstrellas(){
+   console.log("hola");
+ 
+   let cantestrellas = document.querySelectorAll('input[type="radio"][name="estrellas"]:checked');
+   numEstrellas = cantestrellas["0"].value;
+   console.log(numEstrellas);
+
+   $.ajax({
+      url:"",
+      data: "estrellas="+numEstrellas,
+      method:"POST",
+      success:function(respuesta){
+      console.log(respuesta);
+      alert('Seccion Creada!');
+      window.location.href='HomeTutor.php';
+      },
+      error:function(e){
+
+      console.log(e);
+      }
+  })
+
+}
 function mostrarNoticia(a){
 
     parametro = 'idSeccion='+a;
@@ -57,6 +85,8 @@ $.ajax({
    
     });
 }
+
+
 
 function comentarNoticia(a,nombre,idAlumno){
     if($('#txt-noticia-'+a).val()){
