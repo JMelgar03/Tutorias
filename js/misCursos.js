@@ -55,9 +55,7 @@ function obtEstrellas(){
       data: "estrellas="+numEstrellas,
       method:"POST",
       success:function(respuesta){
-      console.log(respuesta);
-      alert('Seccion Creada!');
-      window.location.href='HomeTutor.php';
+     
       },
       error:function(e){
 

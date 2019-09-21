@@ -20,6 +20,37 @@ $(document).ready(function(){
 })	
 
 	
-function verReportes(){
-    console.log("hola");
+function verReportes(id){
+	console.log("hola");
+	$.ajax({
+		url:"",
+			   data:"",
+			   method:"GET",
+			   success:function(respuesta){
+				   document.getElementById('acoso').innerHTML = `
+				   
+				   `
+				   document.getElementById('impuntualidad').innerHTML = `
+				   
+				   `
+				   document.getElementById('otros').innerHTML = `
+				   
+				   `
+				   document.getElementById('falrPrep').innerHTML = `
+				   
+				   `
+				  
+
+			
+		
+
+			   
+			},
+			   error:function(e){
+	   
+				  console.log(e);
+			   }
+	   
+
+	})
 }
