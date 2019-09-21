@@ -249,6 +249,35 @@ echo $conexion->getError();
 
 }
 
+static public function obtenerTutoresR($conexion){
+	$sql = 'SELECT a.idAlumno, Nombre1, Apellido1, NumeroCuenta, email, estado, t.reportes
+	FROM alumno a
+	INNER JOIN usuario u ON a.idUsuario = u.idUsuario
+	INNER JOIN tipousuario tu ON u.idTipoUsuario = tu.idTipoUsuario
+	INNER JOIN tutor t on a.idAlumno =  t.idAlumno
+	WHERE u.idTipoUsuario = 2';
+
+	$resultado = $conexion->ejecutarConsulta($sql);
+	$i=1;
+	while( ($fila = $conexion->obtenerFila($resultado)))
+	{
+		echo  '<tr>
+				<th scope="row">'.$i.'</th>
+				<td>'.$fila['Nombre1'].'</td>
+				<td>'.$fila['Apellido1'].'</td>
+				<td>'.$fila['NumeroCuenta'].'</td>
+				<td>'.$fila['email'].'</td>
+				<td>'.$fila['reportes'].'</td>
+				
+				<td><input type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" value="Ver Reportes" onclick="verReportes('.$fila['idAlumno'].')"> </td>
+				
+				</tr>';
+			$i++;
+	}
+echo $conexion->getError();
+
+}
+
 static public function desactivarTutor($conexion,$idAlumno,$email){
 	$sql='UPDATE alumno SET estado = "I" where idAlumno='.$idAlumno;
 	$conexion->ejecutarConsulta($sql);
