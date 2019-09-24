@@ -39,6 +39,7 @@ session_start();
 </head>
 
 <body>
+
   <!-- Navigation -->
   <nav class="navbar fixed-top navbar-expand-lg   fixed-top" id="navbar1">
     <div class="container">
@@ -114,11 +115,20 @@ session_start();
     </div>
     </div>
   </nav>
-
-  <br>
-  <br>
+    <br>
+    <br>
+    <br>
+ <br>
+  
+  <div >
+    <img class="publicidad1" src="./img/publicidad/4.jpg" alt="">
+ </div>
   <!-- Page Content -->
   <div class="container">
+  <br>
+    <br>
+
+
     <h1>Departamentos</h1>
     <div class="row" id="div-contenedor">
       <div class="card" style="width: 18rem;">
@@ -131,6 +141,18 @@ session_start();
       </div>
     </div>
   </div>
+  <br>
+  <br>
+
+  
+
+  <br>
+ <div >
+    <img class="publicidad1" src="./img/publicidad/1.jpg" alt="">
+ </div>
+
+ <br>
+ <br>
 
 
 

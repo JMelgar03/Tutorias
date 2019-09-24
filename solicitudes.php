@@ -19,7 +19,7 @@
   <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
   <link rel="stylesheet" type="text/css" href="css/util.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
-
+  <link rel="stylesheet" type="text/css" href="css/HomeEstudiante.css">
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -31,7 +31,7 @@
   <body>
 
     <!-- Navigation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar1">
       <div class="container">
 
         <a class="navbar-brand" 

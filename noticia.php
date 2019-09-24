@@ -111,7 +111,12 @@
           Desarrollado por <a href="" target="_blank">Industria de software</a>
       </div> 
     </section>
-
+    <br>
+ <br>
+  
+  <div >
+    <img class="publicidad1" src="./img/publicidad/4.jpg" alt="">
+ </div>
 
     <!-- Bootstrap core JavaScript-->
       <script src="vendor/jquery/jquery.min.js"></script>

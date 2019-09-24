@@ -116,6 +116,12 @@
     </div>
   </nav>
 
+  <br>
+ <br>
+  
+  <div >
+    <img class="publicidad1" src="./img/publicidad/4.jpg" alt="">
+ </div>
 
         <!-- ....................................INICIO MODAL................................................-->
 
@@ -215,8 +221,11 @@
       <div id="seccionesContainer-estudiante">
         
       </div>
+ 
 
+ 
 
+    </div>
 
 
 
@@ -238,6 +247,10 @@
       <script src="js/main.js"></script>
       <script src="js/misCursos.js"></script>
       <script src="js/all.min.js"></script>
-
+      <br>
+ <div >
+    <img class="publicidad1" src="./img/publicidad/2.jpg" alt="">
+ </div>
+ <br>
     </body>
   </html>

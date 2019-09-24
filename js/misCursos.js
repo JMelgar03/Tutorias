@@ -40,16 +40,15 @@ $(document).ready(function(){
 
 })
 
-var numEstrellas;
+
 
 
 function obtEstrellas(nombre,idTutor){
    console.log("hola");
 
-
- 
    let cantestrellas = document.querySelectorAll('input[type="radio"][name="'+nombre+'"]:checked');
    numEstrellas = cantestrellas["0"].value;
+
    console.log(numEstrellas);
 
    $.ajax({
