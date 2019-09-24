@@ -160,6 +160,12 @@
 
     <!-- ....................................INICIO MODAL................................................-->
 
+    <br>
+ <br>
+  
+  <div >
+    <img class="publicidad1" src="./img/publicidad/4.jpg" alt="">
+ </div>
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -217,6 +223,13 @@
       <div id="seccionesContainer">
 
       </div>
+      
+  
+  <div >
+    <img class="publicidad2" src="./img/publicidad/6.jpg" alt="">
+ </div>
+
+ <br>
 
       <div class="container-login100-form-btn">
           <button  class="login100-form-btn" id="btn-crearSeccion">
@@ -224,7 +237,12 @@
       </div>
 
     </div>
+    <br>
+ <br>
+  
 
+ <br>
+ <br>
 
       <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
       <!--===============================================================================================-->

@@ -121,6 +121,10 @@
 
   <br>
   <br>
+  <br>
+ <div >
+    <img class="publicidad1" src="./img/publicidad/6.jpg" alt="">
+ </div>
 
 
 
@@ -243,7 +247,13 @@
 
         </div>   
     </div>
-
+    <br>
+  <br>
+ <div >
+    <img class="publicidad1" src="./img/publicidad/7.jpg" alt="">
+ </div>
+ <br>
+ <br>
 
 
 

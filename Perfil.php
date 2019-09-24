@@ -114,8 +114,13 @@ session_start();
         </div>
       </div>
     </nav>
-    
-
+    <br>
+    <br>
+    <br>
+ <div >
+    <img class="publicidad1" src="./img/publicidad/8.png" alt="">
+ </div>
+ <br>
 
 <br>
     <!-- Page Content -->
@@ -260,6 +265,12 @@ session_start();
     </div>
   </div>
 </div>
+<br>
+    <br>
+ <div >
+    <img class="publicidad1" src="./img/publicidad/9.png" alt="">
+ </div>
+ <br>
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">

@@ -40,14 +40,14 @@ $(document).ready(function(){
 
 })
 
-var numEstrellas;
+
 
 
 function obtEstrellas(){
    console.log("hola");
  
    let cantestrellas = document.querySelectorAll('input[type="radio"][name="estrellas"]:checked');
-   numEstrellas = cantestrellas["0"].value;
+   let numEstrellas = cantestrellas["0"].value;
    console.log(numEstrellas);
 
    $.ajax({
