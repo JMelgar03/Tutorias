@@ -206,6 +206,10 @@
 
 
 		static public function eliminarSeccion($conexion,$codigoSeccion){
+			$sql = "delete from seccionxalumno  
+			where id_Seccion =".$codigoSeccion; 
+			$resultado = $conexion->ejecutarConsulta($sql);
+			
 			$sql = "delete from seccion  
 			where id_Seccion =".$codigoSeccion; 
 			$resultado = $conexion->ejecutarConsulta($sql);
@@ -239,7 +243,7 @@
 		  $resultado = $conexion->ejecutarConsulta($sql);
 		  $respuesta=array();
             while (($fila= $conexion->obtenerFila($resultado))) {
-				$sql2 = 'SELECT a.estado FROM alumno a 
+				$sql2 = 'SELECT a.estado,t.promedio,a.nombre1,a.apellido1 FROM alumno a 
 				INNER JOIN tutor t on a.idAlumno = t.idAlumno
 				INNER JOIN seccion s on t.idTutor = s.idTutor
 				WHERE s.id_Seccion = '.$fila['id_Seccion'];
@@ -247,6 +251,10 @@
 				$fila2 = $conexion->obtenerFila($resultado2);
 				if($fila2['estado'] == 'A')
 				{
+					$estrellas='';
+					for($j=0;$j<round($fila2['promedio']);$j++){
+						$estrellas.='<label style="color:red" class="fas fa-star"></label>';
+					}
 						echo '<div class="card" id="\'div'.$fila['id_Seccion'].'\'">'
 						.'<div class="card-body">'
 							.'<h5 class="card-title">'.$fila['NombreSeccion'].'</h5>'
@@ -266,7 +274,14 @@
 								.'</div>'
 								.'<div class = "col-2">'
 									.'<div class="img-container"><img src="img/imgunah/cropped-logo-2.png" class="logo-seccion"></div>'
-									.'<p class="card-text card-calificacion"> Calificación: </p>'
+									.'<p class="card-text card-calificacion"> 
+									Calificación: 
+									</p>
+									<p class="card-text card-calificacion"> 
+									 
+									'.$estrellas.'
+									</p>'
+									
 								.'</div>'
 							.'</div>'
 						.'</div>'
@@ -284,18 +299,18 @@
 							
 						.'</div>'
 						.'<form action="http://localhost:3333 method:="GET">
-						<h3>Califica al tutor<h3>
+						<h3>Califica al tutor '.$fila2['nombre1'].' '.$fila2['apellido1'].'<h3>
 						
-						<p  onclick="obtEstrellas()" class="clasificacion">
-						  <input id="radio1" type="radio" name="estrellas" value="5"><!--
+						<p  onclick="obtEstrellas(\'estrellas'.$fila['id_Seccion'].'\','.$fila['idTutor'].')" class="clasificacion">
+						  <input id="radio1" type="radio" name="estrellas'.$fila['id_Seccion'].'" value="5"><!--
 						  --><label for="radio1">★</label><!--
-						  --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+						  --><input id="radio2" type="radio" name="estrellas'.$fila['id_Seccion'].'" value="4"><!--
 						  --><label for="radio2">★</label><!--
-						  --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+						  --><input id="radio3" type="radio" name="estrellas'.$fila['id_Seccion'].'" value="3"><!--
 						  --><label for="radio3">★</label><!--
-						  --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+						  --><input id="radio4" type="radio" name="estrellas'.$fila['id_Seccion'].'" value="2"><!--
 						  --><label for="radio4">★</label><!--
-						  --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+						  --><input id="radio5" type="radio" name="estrellas'.$fila['id_Seccion'].'" value="1"><!--
 						  --><label for="radio5">★</label>
 						</p>
 						

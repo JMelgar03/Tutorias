@@ -21,32 +21,18 @@ $(document).ready(function(){
 
 	
 function verReportes(id){
-	console.log("hola");
+	
 	$.ajax({
-		url:"",
-			   data:"",
+		url:"ajax/gestion-usuario.php?accion=obtenerReportes",
+			   data:"idTutor="+id,
 			   method:"GET",
 			   success:function(respuesta){
-				   document.getElementById('acoso').innerHTML = `
+			$('#divReportes').html(respuesta);
 				   
-				   `
-				   document.getElementById('impuntualidad').innerHTML = `
-				   
-				   `
-				   document.getElementById('otros').innerHTML = `
-				   
-				   `
-				   document.getElementById('falrPrep').innerHTML = `
-				   
-				   `
-				  
-
-			
-		
 
 			   
 			},
-			   error:function(e){
+			error:function(e){
 	   
 				  console.log(e);
 			   }

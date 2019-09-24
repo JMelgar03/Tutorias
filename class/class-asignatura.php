@@ -121,7 +121,7 @@
 		$cantidadRegistros = $conexion->cantidadRegistros($resultado);
 		echo $conexion->getError();
 		if($cantidadRegistros >= 1){
-			echo'<a class="nav-link" href="solicitudes.php">solicitudes <span><i class="fas fa-bell" style="color:red;"></i></span></a>';
+			echo'<a class="nav-link" href="solicitudes.php">solicitudes <span><i class="fas fa-bell" style="color:red !portant;"></i></span></a>';
 		}
 		else{
 			echo'<a class="nav-link" href="solicitudes.php">solicitudes</a>';

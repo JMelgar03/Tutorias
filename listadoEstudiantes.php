@@ -95,7 +95,7 @@ $_SESSION['idSecEstudiantes'] = $_GET['idSeccion'];
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">IIndustria del software &copy; Proyecto  2019</p>
+        <p class="m-0 text-center text-white">Industria del software &copy; Proyecto  2019</p>
       </div>
       <!-- /.container -->
     </footer>

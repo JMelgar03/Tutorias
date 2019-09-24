@@ -43,19 +43,21 @@ $(document).ready(function(){
 var numEstrellas;
 
 
-function obtEstrellas(){
+function obtEstrellas(nombre,idTutor){
    console.log("hola");
+
+
  
-   let cantestrellas = document.querySelectorAll('input[type="radio"][name="estrellas"]:checked');
+   let cantestrellas = document.querySelectorAll('input[type="radio"][name="'+nombre+'"]:checked');
    numEstrellas = cantestrellas["0"].value;
    console.log(numEstrellas);
 
    $.ajax({
-      url:"",
-      data: "estrellas="+numEstrellas,
+      url:"ajax/gestion-usuario.php?accion=evaluar",
+      data: "evaluacion="+numEstrellas+"&idTutor="+idTutor,
       method:"POST",
       success:function(respuesta){
-     
+         alert(respuesta);
       },
       error:function(e){
 
@@ -64,6 +66,8 @@ function obtEstrellas(){
   })
 
 }
+
+
 function mostrarNoticia(a){
 
     parametro = 'idSeccion='+a;

@@ -55,6 +55,16 @@
          Usuario::obtenerTutoresR($conexion);
          break;
 
+         case'obtenerReportes':
+         include ('../class/class-usuario1.php');
+         Usuario::obtenerReportes($conexion,$_GET['idTutor']);
+         break;
+
+         case'evaluar':
+         include ('../class/class-usuario1.php');
+         Usuario::evaluarTutor($conexion,$_POST['idTutor'],$_POST['evaluacion']);
+         break;
+
          case'desactivarTutor':
          include ('../class/class-usuario1.php');
          Usuario::desactivarTutor($conexion,$_POST['idAlumno'],$_POST['correo']);

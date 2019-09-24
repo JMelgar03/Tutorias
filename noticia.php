@@ -44,7 +44,7 @@
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="navbar1">
      
-     <a class="navbar-brand" href="index.php"><img src="img/imgunah/logo.png">UNAH</a>
+     <a class="navbar-brand" href="HomeTutor.php"><img src="img/imgunah/logo.png">UNAH</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

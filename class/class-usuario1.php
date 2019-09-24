@@ -250,7 +250,7 @@ echo $conexion->getError();
 }
 
 static public function obtenerTutoresR($conexion){
-	$sql = 'SELECT a.idAlumno, Nombre1, Apellido1, NumeroCuenta, email, estado, t.reportes
+	$sql = 'SELECT a.idAlumno, Nombre1, Apellido1, NumeroCuenta, email, estado, t.reportes, t.idTutor
 	FROM alumno a
 	INNER JOIN usuario u ON a.idUsuario = u.idUsuario
 	INNER JOIN tipousuario tu ON u.idTipoUsuario = tu.idTipoUsuario
@@ -269,7 +269,7 @@ static public function obtenerTutoresR($conexion){
 				<td>'.$fila['email'].'</td>
 				<td>'.$fila['reportes'].'</td>
 				
-				<td><input type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" value="Ver Reportes" onclick="verReportes('.$fila['idAlumno'].')"> </td>
+				<td><input type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" value="Ver Reportes" onclick="verReportes('.$fila['idTutor'].')"> </td>
 				
 				</tr>';
 			$i++;
@@ -315,8 +315,15 @@ static public function activarTutor($conexion,$idAlumno){
 }
 
 static public function reportarTutor($conexion,$idTutor,$idCategoria,$descripcion){
+	$reportes=0;
 	$sql="INSERT INTO reporte (Descripcion, tutor_idTutor, idCategoriaReporte) VALUES ('".$descripcion."', '".$idTutor."', '".$idCategoria."'); ";
 	$resultado = $conexion->ejecutarConsulta($sql);
+	$sql2="SELECT * from tutor WHERE idTutor=".$idTutor;
+	$resultado2 = $conexion->ejecutarConsulta($sql2);
+	$fila =  $conexion->obtenerFila($resultado2);
+	$reportes = $fila['reportes'] + 1;
+	$sql2 ='UPDATE tutor set reportes='.$reportes.' WHERE idTutor = '.$idTutor;
+	$resultado2 = $conexion->ejecutarConsulta($sql2);
 	echo $conexion->getError();
 }
 
@@ -324,9 +331,6 @@ static public function obtenerCategorias($conexion){
 	$sql = "SELECT * FROM CategoriaReporte";
 	$resultado = $conexion->ejecutarConsulta($sql);
 	
-
-	
-
 	while( ($fila = $conexion->obtenerFila($resultado)))
 	{
 		$categorias[$fila['idCategoriaReporte']] = $fila['categoria'];
@@ -335,6 +339,210 @@ static public function obtenerCategorias($conexion){
 echo $conexion->getError();
 echo json_encode($categorias);
 
+}
+
+
+static public function evaluarTutor($conexion,$idTutor,$evaluacion){
+	$sql2="SELECT * from tutor WHERE idTutor=".$idTutor;
+	$resultado2 = $conexion->ejecutarConsulta($sql2);
+	$fila =  $conexion->obtenerFila($resultado2);
+	$cantEvaluaciones = $fila['cantEvaluaciones'] + 1;
+	$evaluacion+= $fila['evaluacion'];
+	$promedio = $evaluacion/$cantEvaluaciones;
+
+	$sql2 ='UPDATE tutor set cantEvaluaciones='.$cantEvaluaciones.',evaluacion='.$evaluacion.', promedio='.$promedio.' WHERE idTutor = '.$idTutor;
+	$resultado2 = $conexion->ejecutarConsulta($sql2);
+	echo $conexion->getError();
+	echo'se califico el tutor';
+
+}
+
+
+
+static public function obtenerReportes($conexion,$idTutor){
+
+$impuntualidad=0;
+$conductaInmoral=0;
+$acoso=0;
+$faltaDePreparacion=0;
+
+
+$impuntualidad2='';
+$conductaInmoral2='';
+$acoso2='';
+$faltaDePreparacion2='';
+
+
+
+$sql='SELECT r.Descripcion, r.idCategoriaReporte
+FROM reporte r
+inner join tutor t on r.tutor_idTutor=t.idTutor
+where t.idTutor ='.$idTutor;
+
+$resultado = $conexion->ejecutarConsulta($sql);
+
+	
+	while( ($fila = $conexion->obtenerFila($resultado)))
+	{
+		if($fila['idCategoriaReporte']=='1'){
+			$impuntualidad++;
+			$impuntualidad2.='
+			<tr>
+			<th scope="row">'.$impuntualidad.'</th>
+			<td>'.$fila['Descripcion'].'</td>
+			</tr>';
+		}
+		elseif($fila['idCategoriaReporte']=='2'||$fila['idCategoriaReporte']=='5'){
+			$conductaInmoral++;
+			$conductaInmoral2.='<tr>
+			<th scope="row">'.$conductaInmoral.'</th>
+			<td>'.$fila['Descripcion'].'</td>
+			</tr>';
+
+		}
+		elseif($fila['idCategoriaReporte']=='3'){
+			$acoso++;
+			$acoso2.='<tr>
+			<th scope="row">'.$acoso.'</th>
+			<td>'.$fila['Descripcion'].'</td>
+			</tr>';
+
+
+		}elseif($fila['idCategoriaReporte']=='4'){
+
+			$faltaDePreparacion++;
+			$faltaDePreparacion2.='<tr>
+			<th scope="row">'.$faltaDePreparacion.'</th>
+			<td>'.$fila['Descripcion'].'</td>
+			</tr>';
+		}
+		
+	}
+	echo $conexion->getError();
+
+
+	echo '<div class="accordion" id="accordionExample">
+	<div class="card2">
+	  <div class="card-header" id="headingOne">
+		<h2 class="mb-0">
+		  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+			Reportes Impuntualidad('.$impuntualidad.')
+		  </button>
+		</h2>
+	  </div>
+
+	  <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+		<div class="card-body" id="impuntualidad">
+		
+		 
+		<table class="table table-striped col-xs-12" style="color:black;">
+		<thead class="">
+		  <tr>
+			<th scope="col">#</th>
+			<th scope="col">Descripcion</th>   
+		  </tr>
+		</thead>
+		<tbody>
+		'.$impuntualidad2.'
+		</tbody>
+	</table>
+
+
+		</div>
+	  </div>
+	</div>
+	<div class="card2">
+	  <div class="card-header" id="headingTwo">
+		<h2 class="mb-0">
+		  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+			Reportes Acoso('.$acoso.')
+		  </button>
+		</h2>
+	  </div>
+	  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+		<div class="card-body" id="acoso">
+			
+
+		<table class="table table-striped col-xs-12" style="color:black;">
+		<thead class="">
+		  <tr>
+			<th scope="col">#</th>
+			<th scope="col">Descripcion</th>   
+		  </tr>
+		</thead>
+		<tbody>
+		'.$acoso2.'
+		</tbody>
+	</table>
+		
+		</div>
+	  </div>
+	</div>
+	<div class="card2">
+	  <div class="card-header" id="headingThree">
+		<h2 class="mb-0">
+		  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+			Actitudes otras('.$conductaInmoral.')
+		  </button>
+		</h2>
+	  </div>
+	  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+		<div class="card-body"id="otros" > 
+		
+		  
+		<table class="table table-striped col-xs-12" style="color:black;">
+		<thead class="">
+		  <tr>
+			<th scope="col">#</th>
+			<th scope="col">Descripcion</th>   
+		  </tr>
+		</thead>
+		<tbody>
+		'.$conductaInmoral2.'
+		</tbody>
+	</table>
+
+
+		</div>
+	  </div>
+	</div>
+	<div class="card2">
+	  <div class="card-header" id="headingFour">
+		<h2 class="mb-0">
+		  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+			Falta de preparacion('.$faltaDePreparacion.')
+		  </button>
+		</h2>
+	  </div>
+	  <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+	  <div class="card-body"id="faltPrep" > 
+
+	  	
+	  
+	  <table class="table table-striped col-xs-12" style="color:black;">
+		<thead class="">
+		  <tr>
+			<th scope="col">#</th>
+			<th scope="col">Descripcion</th>   
+		  </tr>
+		</thead>
+		<tbody>
+		'.$faltaDePreparacion2.'
+		</tbody>
+	</table>
+
+	
+	  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>';
 }
 
 }
